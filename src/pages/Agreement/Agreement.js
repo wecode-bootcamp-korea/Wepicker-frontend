@@ -10,12 +10,12 @@ class Agreement extends Component {
                     <button></button>
                     <span>이용약관 동의 (필수)</span>
                 </div>
-                <textarea value={0909090909090} />
+                <textarea rows="5" cols="50" value={0909090909090} />
                 <div className="checkSecond">
                     <button></button>
                     <span>개인정보 수집 및 이용 (필수)</span>
                 </div>
-                <textarea value={0909090909090} />
+                <textarea rows="5" cols="50" value={0909090909090} />
             </div>
         );
     }
