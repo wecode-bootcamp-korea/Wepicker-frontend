@@ -8,14 +8,10 @@ class Agreement extends Component {
             <div className="Agreement">
                 <div className="checkFirst">
                     <button></button>
-                    <span>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</span>
-                </div>
-                <div className="checkSecond">
-                    <button></button>
                     <span>이용약관 동의 (필수)</span>
                 </div>
                 <textarea></textarea>
-                <div className="checkThird">
+                <div className="checkSecond">
                     <button></button>
                     <span>개인정보 수집 및 이용 (필수)</span>
                 </div>
