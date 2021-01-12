@@ -19,6 +19,13 @@
     position: relative;
     display:flex;
     justify-content: center;
+    overflow: auto;
+
+    .category {
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
 
     .ShopList {
       margin-top: 16px;

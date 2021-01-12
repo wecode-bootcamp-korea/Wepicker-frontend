@@ -6,7 +6,6 @@ class BestItem extends React.Component {
 
   render() {
     const {name, url} = this.props;
-    // console.log(this.props)
     return(
           <li className="BestItem">
             <img alt={name} src={url} />

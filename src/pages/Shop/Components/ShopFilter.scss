@@ -1,12 +1,16 @@
 .ShopFilter {
   position: absolute;
   right: 15px;
-  top: -16px;
+  top: 0;
 
   select {
     width: 95px;
-    height: 30px;
+    height: 20px;
     border: none;
+
+    &:focus {
+      outline: none;
+    }
 
     option {
       font-size: 14px;

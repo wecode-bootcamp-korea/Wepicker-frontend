@@ -28,7 +28,7 @@ class ShopList extends React.Component {
 
     return(
       <ul className="ShopList">
-        {shopListData.map((data) => {
+        {shopListData && shopListData.map((data) => {
           return(
             <ShopItem key={data.id} id={data.id} name={data.name} price={data.price} url={data.url} />
           )

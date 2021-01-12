@@ -10,7 +10,6 @@ class ShopFilter extends React.Component {
       <div className="ShopFilter">
         <select name="filter">
         {FILTER_MENU.map((menu) => {
-          console.log(menu);
           return(
             <option value={menu}>{menu}</option>
           )
