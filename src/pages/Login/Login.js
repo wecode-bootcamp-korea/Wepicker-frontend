@@ -11,8 +11,8 @@ class Login extends Component {
                     <input type="password" placeholder="비밀번호" />
                 </article>
                 <article className="checkBox">
-                    <button></button>
-                    <span>로그인상태유지</span>
+                    <input type="checkbox" id="loginState" />
+                    <label for="loginState">로그인상태유지</label>
                 </article>
                 <button>로그인</button>
                 <div className="signUpBtn">
