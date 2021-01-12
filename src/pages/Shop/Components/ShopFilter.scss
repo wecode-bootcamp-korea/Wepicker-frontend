@@ -1,0 +1,15 @@
+.ShopFilter {
+  position: absolute;
+  right: 15px;
+  top: -16px;
+
+  select {
+    width: 95px;
+    height: 30px;
+    border: none;
+
+    option {
+      font-size: 14px;
+    }
+  }
+}

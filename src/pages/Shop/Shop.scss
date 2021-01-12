@@ -1,0 +1,29 @@
+  nav {
+    height: 69px;
+    width: 100%;
+  }
+  
+  .Shop {
+    // padding: 80px 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+  .bestItemsList {
+    margin-bottom: 100px;
+  }
+
+  .shopContainer {
+    width: 1201px;
+    margin: 0 auto;
+    position: relative;
+    display:flex;
+    justify-content: center;
+
+    .ShopList {
+      margin-top: 16px;
+    }
+  }
+}
+
+
