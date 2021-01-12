@@ -6,30 +6,47 @@
     flex-direction: column;
     margin: auto;
     margin-top: 30px;
-    max-width: 1280px;
-    width: 1280px;
+    max-width: 1250px;
+    width: 1250px;
 
     img {
-        margin: 0 auto;
         width: 85px;
         height: 85px;
+        margin: 0 auto;
         border-radius: 50%;
         cursor: pointer;
     }
     input {
-        border: 1px solid #e0e0e0;
         height: 40.8px;
+        padding: 5px 10px;
+        border: 1px solid #e0e0e0;
+    }
+    p {
+        margin: 25px 0 10px 0;
+        font-size: 14px;
+        font-weight: normal;
     }
     .checkIdPw {
         display: flex;
         flex-direction: column;
+        margin: 20px 0;
         border: 1px solid #e0e0e0;
-        margin-bottom: 20px;
         input {
+            padding: 5px 10px;
             border: none;
-            &:nth-child(odd) {
+            &:first-child {
                 border-bottom: 1px solid #e0e0e0;
             }
+            &:last-child {
+                border-top: 1px solid #e0e0e0;
+            }
         }
+    }
+    button {
+        height: 45px;
+        margin-top: 25px;
+        color: white;
+        background-color: $pointGreen;
+        border: 1px solid $pointGreen;
     }
 }
