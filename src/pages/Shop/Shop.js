@@ -2,8 +2,9 @@ import React from 'react'
 
 import Category from '../../components/Category/Category'
 import ShopList from '../../components/ShopList/ShopList'
-import ShopFilter from './Components/ShopFilter'
+import ShopFilter from './Components/ShopFilter/ShopFilter'
 import BestItems from '../../components/BestItems/BestItems'
+import ItemDetail from './Components/ItemDetail/ItemDetail'
 
 import './Shop.scss'
 
@@ -14,7 +15,8 @@ class Shop extends React.Component {
       {/* 나중에 Nav 컴포넌트 추가할 부분 */}
       <nav></nav>
 
-      <div className="Shop">
+      <ItemDetail />
+      {/* <div className="Shop">
         <div className="bestItemsList">
           <BestItems />
         </div>
@@ -27,7 +29,7 @@ class Shop extends React.Component {
             <ShopList />
           </div>
         </div>
-      </div>
+      </div> */}
       </>
     )
   }
