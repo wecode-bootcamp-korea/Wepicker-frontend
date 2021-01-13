@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import './Main.scss';
-import mainImg from "../../images/Main/main01.jpg";
 import Fade from 'react-reveal/Fade';
-
+import mainImg from "../../images/Main/main01.jpg";
+import './Main.scss';
 
 export class Main extends Component {
     render() {
@@ -35,14 +34,10 @@ export class Main extends Component {
                                 </div>
 
                                 <div className="midRightBanner" />
-
                             </div>
                     </Fade>
-
-
                     
                     <div className="bottomBanner">
-
                         <Fade bottom>
                                 <div className="bottomBannerText">
                                     <h4 className="subTitle">
@@ -55,15 +50,11 @@ export class Main extends Component {
                                     </h1>
                                 </div>
                         </Fade>
-
                     </div>
-                    
 
             </section>
-
         );
     }
 }
-  
 
 export default Main;
