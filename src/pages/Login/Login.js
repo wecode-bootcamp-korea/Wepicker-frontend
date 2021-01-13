@@ -15,20 +15,26 @@ class Login extends Component {
     }
 
     handleIdValue = (event) => {
-        this.setState({
-            idValue: event.target.value,
-        });
+        this.setState(
+            {
+                idValue: event.target.value,
+            },
+            () => this.checkBtnState()
+        );
     };
 
     handlePwValue = (event) => {
-        this.setState({
-            pwValue: event.target.value,
-        });
+        this.setState(
+            {
+                pwValue: event.target.value,
+            },
+            () => this.checkBtnState()
+        );
     };
 
-    btnState = () => {
+    checkBtnState = () => {
         const { idValue, pwValue } = this.state;
-        const isActive = idValue.length > 5 && pwValue.length > 5;
+        const isActive = idValue.length > 5 && pwValue.length >= 8;
 
         this.setState({
             isBtnActive: isActive ? true : false,
