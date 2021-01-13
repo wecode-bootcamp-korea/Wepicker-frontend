@@ -1,0 +1,49 @@
+.footer {
+    width: 100%;
+    height: 450px;
+    background-color: #09342c;
+    padding: 0 150px;
+
+    .footerLogo {
+        height: 30px;
+    }
+
+    .footerText {
+        display: flex;
+        justify-content: space-between;
+
+            .infoText {
+                display: flex;
+                align-items: center;
+                width: 900px;
+                color: white;
+                opacity: 0.8;
+            }
+            
+            .menuText {
+                display: flex;
+                align-items: center;
+                width: 220px;
+                color: white;
+            }
+            
+            .buttonSection {
+                width: 220px;
+            }
+    }
+
+    .divideLine {
+        border: 1px solid white;
+    }
+    
+    .copyRight {
+        text-align: center;
+        opacity: 0.6;
+    }
+}
+
+
+
+
+
+
