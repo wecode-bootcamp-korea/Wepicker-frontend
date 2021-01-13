@@ -9,7 +9,33 @@ import './ItemDetail.scss'
 
 
 class ItemDetail extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      quantityValue: 1,
+      isHide: true
+    }
+  }
+
+  minusQuantity = () => {
+    this.setState({
+      quantityValue: this.state.quantityValue -1
+    })
+  }
+
+  plusQunatity = () => {
+    this.setState({
+      quantityValue: this.state.quantityValue +1
+    })
+  }
+
+  showMessage = () => {
+
+  }
+
   render() {
+    const {quantityValue} = this.state;
+
     return(
       <section className="ItemDetail">
         <div className="imgContainer">
@@ -28,9 +54,13 @@ class ItemDetail extends React.Component {
             <dt>구매혜택</dt>
             <dd>
               80 포인트 적립예정
-              <button type="button">
+              <button type="button" onClick={this.showMessage}>
                 <img alt="more info" src={questionIcon} />
               </button>
+              <div className="pointMessage">
+                적립금액은 할인 쿠폰 적용 및 옵션 가격, 수량을 기준으로 적립되므로
+                최종 적립금액은 쿠폰 사용 여부 및 옵션 가격, 수량에 따라 달라질 수 있습니다.
+              </div>
             </dd>
           </dl>
           <dl>
@@ -56,14 +86,14 @@ class ItemDetail extends React.Component {
           <div className="quantityBox">
             <label>수량</label>
             <div className="quantityForm">
-              <button>-</button>
-              <input type="number" />
-              <button>+</button>
+              <button onClick={this.minusQuantity}>-</button>
+              <input type="number" value={quantityValue} min="1" max="10"/>
+              <button onClick={this.plusQunatity}>+</button>
             </div>
             <p>4,000원</p>
           </div>
           <div className="totalPrice">
-            <p>총 상품금액(1개)</p>
+            <p>총 상품금액 (1개)</p>
             <p>4,000원</p>
           </div>
           <div className="btnGroup">

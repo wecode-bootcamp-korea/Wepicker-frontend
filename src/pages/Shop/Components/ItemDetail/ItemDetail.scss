@@ -73,6 +73,7 @@
       }
 
         dd {
+          position: relative;
           font-size: 11px;
 
           button {
@@ -92,6 +93,19 @@
               width: 14px;
               height: 14px;
             }
+          }
+
+          .pointMessage {
+            width: 200px;
+            height: 80px;
+            padding: 10px;
+            position: absolute;
+            left: 0;
+            border: 1px solid #E3E2E0;
+            border-radius: 12px;
+            background-color: #fff;
+            z-index: 5;
+            box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
           }
         }
     }
@@ -154,11 +168,17 @@
           }
         }
 
-        input {
+        input[type=number] {
           width: 40px;
           padding: 0;
           border: 1px solid #E3E2E0;
           text-align: center;
+          
+          &:-webkit-outer-spin-button,
+          &:-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
 
           &:focus {
             outline: none;
