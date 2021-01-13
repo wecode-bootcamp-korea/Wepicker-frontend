@@ -8,7 +8,6 @@ import wish from '../../images/Nav/heart.png';
 export class Nav extends Component {
     render() {
         return(
-
                 <nav className="navBar">
                     <div className="navContents">
                             <div className="sideMenuBtn">
@@ -24,7 +23,6 @@ export class Nav extends Component {
                             </div>
                     </div>
                 </nav>
-
         );
     }
 }
