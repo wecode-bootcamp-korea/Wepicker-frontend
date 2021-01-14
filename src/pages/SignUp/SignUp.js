@@ -20,8 +20,8 @@ class SignUp extends Component {
         this.setState(
             {
                 idValue: e.target.value,
-            },
-            () => this.handleSignupBtn()
+            }
+            // () => this.handleSignupBtn()
         );
     };
 
@@ -29,8 +29,8 @@ class SignUp extends Component {
         this.setState(
             {
                 pwValue: e.target.value,
-            },
-            () => this.handleSignupBtn()
+            }
+            // () => this.handleSignupBtn()
         );
     };
 
@@ -38,8 +38,8 @@ class SignUp extends Component {
         this.setState(
             {
                 pwCheckValue: e.target.value,
-            },
-            () => this.handleSignupBtn()
+            }
+            // () => this.handleSignupBtn()
         );
     };
 
@@ -47,8 +47,8 @@ class SignUp extends Component {
         this.setState(
             {
                 emailValue: e.target.value,
-            },
-            () => this.handleSignupBtn()
+            }
+            // () => this.handleSignupBtn()
         );
     };
 
@@ -56,8 +56,8 @@ class SignUp extends Component {
         this.setState(
             {
                 nameValue: e.target.value,
-            },
-            () => this.handleSignupBtn()
+            }
+            // () => this.handleSignupBtn()
         );
     };
 
@@ -65,42 +65,45 @@ class SignUp extends Component {
         this.setState(
             {
                 phoneValue: e.target.value,
-            },
-            () => this.handleSignupBtn()
+            }
+            // () => this.handleSignupBtn()
         );
     };
     //account, password, name, phone, email, profile_photo
 
-    // handleSignupBtn = () => {
-    //     if (6 > {});
-    //     fetch(API, {
-    //         method: "POST",
-    //         body: JSON.stringify({
-    //             account: this.state.idValue,
-    //             password: this.state.pwValue,
-    //             name: this.state.nameValue,
-    //             phone: this.state.phoneValue,
-    //             email: this.state.emailValue,
-    //         }),
-    //     })
-    //         .then((res) => res.json())
-    //         .then((res) => {
-    //             if (res.message === "SUCCESS") {
-    //                 this.props.history.push("/login");
-    //                 return;
-    //             }
-    //             if (res.message !== "SUCCESS") {
-    //                 alert("로그인실패");
-    //             }
-    //         });
-
-    // const { idValue, pwValue } = this.state;
-    // const isActive = idValue.length > 5 && pwValue.length >= 8;
-
-    // this.setState({
-    //     isBtnActive: isActive
-    // });
-    // };
+    handleSignupBtn = () => {
+        const checkId = this.state.emailValue.includes("@", ".com");
+        const checkPw = this.state.pwValue.length >= 8;
+        const doubleCheckPw = this.state.pwCheckValue === this.state.pwValue;
+        if (checkId && checkPw && doubleCheckPw) {
+            this.setState({
+                handleSignupBtn: true,
+            });
+            console.log("완료");
+            return this.props.history.push("/login");
+        }
+        // fetch(API, {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //         account: this.state.idValue,
+        //         password: this.state.pwValue,
+        //         name: this.state.nameValue,
+        //         phone: this.state.phoneValue,
+        //         email: this.state.emailValue,
+        //     }),
+        // })
+        //     .then((res) => res.json())
+        //     .then((res) => {
+        //         if (res.message === "SUCCESS") {
+        //             alert(`${nameValue}님, 회원가입을 축하드립니다! 로그인 페이지로 이동합니다.`);
+        //             this.props.history.push("/login");
+        //             return;
+        //         }
+        //         if (res.message !== "SUCCESS") {
+        //             alert("가입 형식에 맞춰 작성해주세요");
+        //         }
+        //     });
+    };
 
     render() {
         return (
@@ -137,7 +140,7 @@ class SignUp extends Component {
                     <span>* 숫자만 입력 가능합니다</span>
                     <input
                         className="phoneContainer"
-                        type="text"
+                        type="number"
                         placeholder="연락처"
                         onChange={this.handlePhoneValue}
                     />
