@@ -1,0 +1,76 @@
+.ItemReview {
+  max-height: 400px;
+  padding: 30px 0;
+  display: flex;
+  border-top: 1px solid #E3E2E0;
+
+  &:first-child {
+    border-color: black;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid black;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .reviewContent {
+    width: 70%;
+
+    img {
+      display: block;
+      width: 60px;
+      height: 60px;
+      margin-top: 10px;
+    }
+
+    .addComment {
+      margin-top: 40px;
+      
+        form {
+          margin: 10px 0;
+
+          .commentInput {
+            width: 600px;
+            height: 100px;
+            padding-left: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #E3E2E0;
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          button {
+            width: 100px;
+
+            &:hover {
+              cursor: pointer;
+            }
+            
+            &:first-child {
+              height: 30px;
+            }
+          }
+        }
+    }
+
+    .addComment.hide {
+      display: none;
+    }
+  }
+}
+
+.ItemReview.opened {
+  max-height: 800px;
+
+  .reviewContent {
+    img {
+      width: 400px;
+      height: auto;
+    }
+  }
+}

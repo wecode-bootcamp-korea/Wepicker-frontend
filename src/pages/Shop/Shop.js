@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import Category from '../../components/Category/Category'
 import ShopList from '../../components/ShopList/ShopList'
@@ -8,15 +8,15 @@ import ItemDetail from './Components/ItemDetail/ItemDetail'
 
 import './Shop.scss'
 
-class Shop extends React.Component {
+class Shop extends Component {
   render() {
     return(
       <>
       {/* 나중에 Nav 컴포넌트 추가할 부분 */}
       <nav></nav>
 
-      <ItemDetail />
-      {/* <div className="Shop">
+      {/* <ItemDetail /> */}
+      <div className="Shop">
         <div className="bestItemsList">
           <BestItems />
         </div>
@@ -29,7 +29,7 @@ class Shop extends React.Component {
             <ShopList />
           </div>
         </div>
-      </div> */}
+      </div>
       </>
     )
   }

@@ -1,0 +1,31 @@
+{
+  "ITEM_REVIEW": [
+    {
+      "id": 1,
+      "star": 3,
+      "option": "[옵션] TYPE: 작은 수세미(small)",
+      "comment": "괜찮아요 괜찮아요..",
+      "imgUrl": null,
+      "userId": "jinn12344",
+      "postedDate": "2021-01-08 00:11"
+    },
+    {
+      "id": 2,
+      "star": 4,
+      "option": "[옵션] TYPE: 작은 수세미(large)",
+      "comment": "배송도 엄청빠르네요",
+      "imgUrl": "https://cdn.imweb.me/thumbnail/20190819/f04f8e649c5ca.jpg",
+      "userId": "jinn12344",
+      "postedDate": "2021-01-08 00:10"
+    },
+    {
+      "id": 3,
+      "star": 5,
+      "option": "[옵션] TYPE: 작은 수세미(large)",
+      "comment": "아주아주 좋아요! 6개월정도 썼는데~ 이제 새로 바꾸려고해요ㅎㅎ",
+      "imgUrl": "https://cdn.imweb.me/thumbnail/20191022/fe0137460b15c.jpg",
+      "userId": "크리스티나",
+      "postedDate": "2021-01-08 00:10"
+    }
+  ]
+}

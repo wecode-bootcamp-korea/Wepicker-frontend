@@ -4,6 +4,7 @@ import CategoryItem from './Components/CategoryItem/CategoryItem'
 
 import './Category.scss'
 
+const CATEGORIES = ['카테고리', 'SHOP ALL', 'LIVING', 'KITCHEN'];
 
 class Category extends React.Component {
   render() {
@@ -16,7 +17,6 @@ class Category extends React.Component {
         })}
       </ul>
     )
-    const CATEGORIES = ['카테고리', 'SHOP ALL', 'LIVING', 'KITCHEN'];
   }
 }
 

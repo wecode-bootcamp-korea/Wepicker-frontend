@@ -1,6 +1,7 @@
 import React from 'react'
 
-import ItemOptios from './Components/ItemOptions'
+import ItemOptios from './Components/ItemOptions/ItemOptions'
+import ItemDetailMenu from './Components/ItemDetailMenu/ItemDetailMenu'
 
 import questionIcon from '../../../../images/ItemDetail/question.png'
 import like from '../../../../images/ItemDetail/like.png'
@@ -13,7 +14,8 @@ class ItemDetail extends React.Component {
     super();
     this.state = {
       quantityValue: 1,
-      isHide: true
+      isPointMsgHide: true,
+      isDelieveryMsgHide: true
     }
   }
 
@@ -29,35 +31,45 @@ class ItemDetail extends React.Component {
     })
   }
 
-  showMessage = () => {
+  showPointMsg = () => {
+    this.setState({
+      isPointMsgHide: !this.state.isPointMsgHide
+    })
+  }
 
+  showDelieveryMsg = () => {
+    this.setState({
+      isDelieveryMsgHide: !this.state.isDelieveryMsgHide
+    })
   }
 
   render() {
-    const {quantityValue} = this.state;
+    const {quantityValue, isPointMsgHide, isDelieveryMsgHide, ItemDetailData} = this.state;
 
+    console.log(ItemDetailData)
     return(
+      <div className="ItemDetailPage">
       <section className="ItemDetail">
         <div className="imgContainer">
-          <img className="mainImg" src="https://images.unsplash.com/photo-1529763898477-40a4374b072f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+          <img className="유기농 스트링 에코백" src="https://images.unsplash.com/photo-1537130508986-20f4fd870b4e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80" />
           <div className="imgThumnail">
-            <img src="https://images.unsplash.com/photo-1529763898477-40a4374b072f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-            <img src="https://images.unsplash.com/photo-1529763898477-40a4374b072f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+            <img className="유기농 스트링 에코백" src="https://images.unsplash.com/photo-1537130508986-20f4fd870b4e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80" />
+            <img className="유기농 스트링 에코백" src="https://images.unsplash.com/photo-1537130508986-20f4fd870b4e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80" />
           </div>
         </div>
         <div className="itemInfo">
-          <h1>천연 목욕 수세미(어린수세미)</h1>
-          <p className="price">4,000원</p>
+          <h1>유기농 스트링 에코백</h1>
+          <p className="price">19,000</p>
           <div className="dividerLine"></div>
-          <p>매일의 목욕에 부드럽게 사용할 수 있는 천연 어린수세미</p>
+          <p>유기농 면으로 만든 무형광, 무표백 스트링 그물백.</p>
           <dl>
             <dt>구매혜택</dt>
             <dd>
               80 포인트 적립예정
-              <button type="button" onClick={this.showMessage}>
+              <button type="button" onClick={this.showPointMsg}>
                 <img alt="more info" src={questionIcon} />
               </button>
-              <div className="pointMessage">
+              <div className={isPointMsgHide ? "pointMessage hide" : "pointMessage"}>
                 적립금액은 할인 쿠폰 적용 및 옵션 가격, 수량을 기준으로 적립되므로
                 최종 적립금액은 쿠폰 사용 여부 및 옵션 가격, 수량에 따라 달라질 수 있습니다.
               </div>
@@ -67,9 +79,12 @@ class ItemDetail extends React.Component {
             <dt>배송비</dt>
             <dd>
               3,000원 (50,000원 이상 무료배송) | 도서산간 배송비 추가
-              <button type="button">
+              <button type="button" onClick={this.showDelieveryMsg}>
                 <img alt="more info" src={questionIcon} />
               </button>
+              <div className={isDelieveryMsgHide ? "delieveryMessage hide" : "delieveryMessage"}>
+                제주 및 도서지역 추가 3,000원
+              </div>
             </dd>
           </dl>
           <div className="delieveryOptions">
@@ -112,6 +127,10 @@ class ItemDetail extends React.Component {
           </div>
         </div>
       </section>
+        <section className="ItemDetailInfo">
+          <ItemDetailMenu />
+        </section>
+      </div>
     )
   }
 }
