@@ -19,7 +19,7 @@ class Login extends Component {
             {
                 idValue: event.target.value,
             },
-            () => this.checkBtnState()
+            () => this.checkBtnState() //value가 전부 들어오고 나서 함수실행(메서드 써주기)
         );
     };
 
@@ -41,6 +41,8 @@ class Login extends Component {
         });
     };
 
+    handleLogin = () => {};
+
     render() {
         return (
             <div className="Login">
@@ -52,7 +54,10 @@ class Login extends Component {
                     <input type="checkbox" id="loginState" />
                     <label for="loginState">로그인상태유지</label>
                 </article>
-                <button className={this.state.isBtnActive}> 로그인</button>
+                <button className={this.state.isBtnActive} onClick={this.handleLogin}>
+                    {" "}
+                    로그인
+                </button>
                 <div className="signUpBtn">
                     <span>회원가입</span>
                     <span>아이디.비밀번호 찾기</span>
