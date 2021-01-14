@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
+import Footer from "../../components/Footer/Footer";
 import "./SignUp.scss";
 import { profileUrl } from "../../images/imgData";
 
@@ -95,7 +95,7 @@ class SignUp extends Component {
         //     .then((res) => res.json())
         //     .then((res) => {
         //         if (res.message === "SUCCESS") {
-        //             alert(`${nameValue}님, 회원가입을 축하드립니다! 로그인 페이지로 이동합니다.`);
+        //             alert(`${res.name}님, 회원가입을 축하드립니다! 로그인 페이지로 이동합니다.`);
         //             this.props.history.push("/login");
         //             return;
         //         }
@@ -108,45 +108,52 @@ class SignUp extends Component {
     render() {
         return (
             <div className="SignUp">
-                <img alt="profile_image" src={profileUrl} />
-                <span>* 아이디는 5자 이상의 영문자만 가능합니다.</span>
-                <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
-                <span>* 비밀번호는 8자 이상 가능합니다 (특수문자 포함).</span>
-                <div className="checkPw">
-                    <input type="password" placeholder="비밀번호" onChange={this.handlePwValue} />
+                <div className="content">
+                    <img alt="profile_image" src={profileUrl} />
+                    <span>* 아이디는 5자 이상의 영문자만 가능합니다.</span>
+                    <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
+                    <span>* 비밀번호는 8자 이상 가능합니다 (특수문자 포함).</span>
+                    <div className="checkPw">
+                        <input
+                            type="password"
+                            placeholder="비밀번호"
+                            onChange={this.handlePwValue}
+                        />
+                        <input
+                            type="password"
+                            placeholder="비밀번호 확인"
+                            onChange={this.handlePwCheckValue}
+                        />
+                    </div>
+                    <p>이메일</p>
                     <input
-                        type="password"
-                        placeholder="비밀번호 확인"
-                        onChange={this.handlePwCheckValue}
+                        className="email"
+                        type="email"
+                        placeholder="이메일"
+                        onChange={this.handleEmailValue}
                     />
-                </div>
-                <p>이메일</p>
-                <input
-                    className="email"
-                    type="email"
-                    placeholder="이메일"
-                    onChange={this.handleEmailValue}
-                />
 
-                <p>이름</p>
-                <input
-                    className="name"
-                    type="text"
-                    placeholder="이름을(를) 입력하세요"
-                    onChange={this.handleNameValue}
-                />
-                <div className="phoneContainer">
-                    <p>연락처</p>
-                    <span>* 숫자만 입력 가능합니다</span>
+                    <p>이름</p>
                     <input
-                        className="phoneContainer"
-                        type="number"
-                        placeholder="연락처"
-                        onChange={this.handlePhoneValue}
+                        className="name"
+                        type="text"
+                        placeholder="이름을(를) 입력하세요"
+                        onChange={this.handleNameValue}
                     />
-                </div>
+                    <div className="phoneContainer">
+                        <p>연락처</p>
+                        <span>* 숫자만 입력 가능합니다</span>
+                        <input
+                            className="phoneContainer"
+                            type="number"
+                            placeholder="연락처"
+                            onChange={this.handlePhoneValue}
+                        />
+                    </div>
 
-                <button onClick={this.handleSignupBtn}> 가입하기</button>
+                    <button onClick={this.handleSignupBtn}> 가입하기</button>
+                </div>
+                <Footer />
             </div>
         );
     }
