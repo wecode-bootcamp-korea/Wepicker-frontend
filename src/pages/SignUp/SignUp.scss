@@ -6,47 +6,60 @@
     flex-direction: column;
     margin: auto;
     margin-top: 30px;
-    max-width: 1250px;
-    width: 1250px;
+    max-width: 500px;
+    width: 500px;
 
     img {
+        margin: 10px auto;
         width: 85px;
         height: 85px;
-        margin: 0 auto;
         border-radius: 50%;
         cursor: pointer;
     }
     input {
-        height: 40.8px;
-        padding: 5px 10px;
+        width: 100%;
+        margin: 10px 0;
+        padding: 0 10px;
         border: 1px solid #e0e0e0;
+        height: 40.8px;
     }
-    p {
-        margin: 25px 0 10px 0;
-        font-size: 14px;
-        font-weight: normal;
+    span {
+        margin-top: 30px;
+        color: grey;
+        font-size: 12px;
+        line-height: 60%;
     }
-    .checkIdPw {
+    .checkPw {
         display: flex;
         flex-direction: column;
-        margin: 20px 0;
         border: 1px solid #e0e0e0;
+        margin: 10px 0 40px 0;
         input {
-            padding: 5px 10px;
+            margin: 0;
             border: none;
             &:first-child {
                 border-bottom: 1px solid #e0e0e0;
             }
-            &:last-child {
-                border-top: 1px solid #e0e0e0;
-            }
+        }
+    }
+    .email {
+        margin-bottom: 30px;
+    }
+    .name {
+        margin-bottom: 30px;
+    }
+
+    .phoneContainer {
+        margin-bottom: 20px;
+        p {
+            padding-bottom: 10px;
         }
     }
     button {
-        height: 45px;
-        margin-top: 25px;
-        color: white;
+        height: 40px;
+        margin: 10px 0 30px 0;
+        color: $bgWhite;
         background-color: $pointGreen;
-        border: 1px solid $pointGreen;
+        cursor: pointer;
     }
 }

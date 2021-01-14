@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 import "./SignUp.scss";
 import { profileUrl } from "../../images/imgData";
@@ -9,6 +10,7 @@ class SignUp extends Component {
         this.state = {
             idValue: "",
             pwValue: "",
+            pwCheckValue: "",
             emailValue: "",
             nameValue: "",
             phoneValue: "",
@@ -27,6 +29,15 @@ class SignUp extends Component {
         this.setState(
             {
                 pwValue: e.target.value,
+            },
+            () => this.handleSignupBtn()
+        );
+    };
+
+    handlePwCheckValue = (e) => {
+        this.setState(
+            {
+                pwCheckValue: e.target.value,
             },
             () => this.handleSignupBtn()
         );
@@ -60,63 +71,82 @@ class SignUp extends Component {
     };
     //account, password, name, phone, email, profile_photo
 
-    handleSignupBtn = () => {
-        fetch("http://localhost:3000/API", {
-            method: "POST",
-            body: JSON.stringify({
-                account: this.state.idValue,
-                password: this.state.pwValue,
-                name: this.state.nameValue,
-                phone: this.state.phoneValue,
-                email: this.state.emailValue,
-            }),
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                if (response.message === "SUCCESS") {
-                    this.setState.push("/main");
-                    return;
-                }
-                if (response.message !== "SUCCESS") {
-                    alert("로그인실패");
-                }
-            });
+    // handleSignupBtn = () => {
+    //     if (6 > {});
+    //     fetch(API, {
+    //         method: "POST",
+    //         body: JSON.stringify({
+    //             account: this.state.idValue,
+    //             password: this.state.pwValue,
+    //             name: this.state.nameValue,
+    //             phone: this.state.phoneValue,
+    //             email: this.state.emailValue,
+    //         }),
+    //     })
+    //         .then((res) => res.json())
+    //         .then((res) => {
+    //             if (res.message === "SUCCESS") {
+    //                 this.props.history.push("/login");
+    //                 return;
+    //             }
+    //             if (res.message !== "SUCCESS") {
+    //                 alert("로그인실패");
+    //             }
+    //         });
 
-        // const { idValue, pwValue } = this.state;
-        // const isActive = idValue.length > 5 && pwValue.length >= 8;
+    // const { idValue, pwValue } = this.state;
+    // const isActive = idValue.length > 5 && pwValue.length >= 8;
 
-        // this.setState({
-        //     isBtnActive: isActive
-        // });
-    };
+    // this.setState({
+    //     isBtnActive: isActive
+    // });
+    // };
 
     render() {
         return (
             <div className="SignUp">
                 <img alt="profile_image" src={profileUrl} />
-                <div className="checkIdPw">
-                    <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
+                <span>* 아이디는 5자 이상의 영문자만 가능합니다.</span>
+                <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
+                <span>* 비밀번호는 8자 이상 가능합니다 (특수문자 포함).</span>
+                <div className="checkPw">
                     <input type="password" placeholder="비밀번호" onChange={this.handlePwValue} />
                     <input
                         type="password"
                         placeholder="비밀번호 확인"
-                        onChange={this.handlePwValue}
+                        onChange={this.handlePwCheckValue}
                     />
                 </div>
                 <p>이메일</p>
-                <input type="email" placeholder="이메일" onChange={this.handleEmailValue} />
+                <input
+                    className="email"
+                    type="email"
+                    placeholder="이메일"
+                    onChange={this.handleEmailValue}
+                />
+
                 <p>이름</p>
                 <input
+                    className="name"
                     type="text"
                     placeholder="이름을(를) 입력하세요"
                     onChange={this.handleNameValue}
                 />
-                <p>연락처</p>
-                <input type="number" placeholder="연락처" onChange={this.handlePhoneValue} />
+                <div className="phoneContainer">
+                    <p>연락처</p>
+                    <span>* 숫자만 입력 가능합니다</span>
+                    <input
+                        className="phoneContainer"
+                        type="text"
+                        placeholder="연락처"
+                        onChange={this.handlePhoneValue}
+                    />
+                </div>
+
                 <button onClick={this.handleSignupBtn}> 가입하기</button>
             </div>
         );
     }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
