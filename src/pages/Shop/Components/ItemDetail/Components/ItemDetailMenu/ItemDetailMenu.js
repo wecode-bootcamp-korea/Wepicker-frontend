@@ -35,8 +35,10 @@ class ItemDetailMenu extends Component {
             )
           })}
         </ul>
-        <section>
-          {TAB_COMPONENTS[currentTab]}
+        <section className="tabContent">
+          <div>
+            {TAB_COMPONENTS[currentTab]}
+          </div>
         </section>
       </section>
 

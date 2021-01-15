@@ -14,22 +14,9 @@ class ItemDetail extends React.Component {
   constructor() {
     super();
     this.state = {
-      quantityValue: 1,
       isPointMsgHide: true,
       isDelieveryMsgHide: true
     }
-  }
-
-  minusQuantity = () => {
-    this.setState({
-      quantityValue: this.state.quantityValue -1
-    })
-  }
-
-  plusQunatity = () => {
-    this.setState({
-      quantityValue: this.state.quantityValue +1
-    })
   }
 
   showPointMsg = () => {
@@ -45,7 +32,7 @@ class ItemDetail extends React.Component {
   }
 
   render() {
-    const {quantityValue, isPointMsgHide, isDelieveryMsgHide, ItemDetailData} = this.state;
+    const {isPointMsgHide, isDelieveryMsgHide, ItemDetailData} = this.state;
 
     console.log(ItemDetailData)
     return(
@@ -100,15 +87,6 @@ class ItemDetail extends React.Component {
             </select>
           </div>
           <ItemOptios />
-          <div className="quantityBox">
-            <label>수량</label>
-            <div className="quantityForm">
-              <button onClick={this.minusQuantity}>-</button>
-              <input type="number" value={quantityValue} min="1" max="10"/>
-              <button onClick={this.plusQunatity}>+</button>
-            </div>
-            <p>4,000원</p>
-          </div>
           <div className="totalPrice">
             <p>총 상품금액 (1개)</p>
             <p>4,000원</p>
