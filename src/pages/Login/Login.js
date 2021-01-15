@@ -42,23 +42,31 @@ class Login extends Component {
     };
 
     handleLogin = () => {
-        // fetch(API, {
-        //     method: "post",
-        //     body: JSON.stringify({
-        //         account: this.state.idValue,
-        //         password: this.state.pwValue,
-        //     }),
-        // })
-        //     .then((res) => res.json())
-        //     .then((res) => {
-        //         if (res.message === "SUCCESS") {
-        //             this.props.history.push("/main");
-        //             return;
-        //         }
-        //         if (res.message !== "SUCCESS") {
-        //             alert("아이디와 비밀번호를 다시 한 번 확인해주세요");
-        //         }
-        //     });
+        fetch(API, {
+            method: "post",
+            body: JSON.stringify({
+                account: this.state.idValue,
+                password: this.state.pwValue,
+            }),
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                if (res.message === "SUCCESS") {
+                    localStorage.setItem("token", res.token);
+                    this.props.history.push("/main");
+                    return;
+                }
+                if (res.message === "invalid id") {
+                    alert("id를 다시 한 번 확인해주세요");
+                }
+                if (res.message === "invalid pw") {
+                    alert("password를 다시 한 번 확인해주세요");
+                }
+                if (res.message === "user not found") {
+                    alert("password를 다시 한 번 확인해주세요");
+                    this.props.history.push("/SingUp");
+                }
+            });
     };
 
     render() {
