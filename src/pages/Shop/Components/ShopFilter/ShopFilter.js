@@ -6,15 +6,13 @@ const FILTER_MENU = ['등록순', '인기순', '낮은가격순', '높은가격�
 class ShopFilter extends React.Component {
   render() {
     return(
-      <div className="ShopFilter">
-        <select name="filter">
+        <select className="ShopFilter" name="filter">
         {FILTER_MENU.map((menu) => {
           return(
             <option value={menu}>{menu}</option>
           )
         })}
       </select>
-      </div>
     )
   }
 }

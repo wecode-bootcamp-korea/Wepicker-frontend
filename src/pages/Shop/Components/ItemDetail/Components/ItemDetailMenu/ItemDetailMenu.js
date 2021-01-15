@@ -49,12 +49,15 @@ class ItemDetailMenu extends Component {
 export default ItemDetailMenu
 
 const MENU_TABS = [
-  {url: '/shop/1',
-   name: "상세정보"},
-  {url: '/shop/1/review',
-   name: "구매평"},
-  {url: '/shop/1/qna',
-   name: "Q&A"}
+  {
+   name: "상세정보"
+  },
+  {
+   name: "구매평"
+  },
+  {
+   name: "Q&A"
+  }
   ];
 
 const TAB_COMPONENTS = {

@@ -44,7 +44,7 @@ class ItemReview extends Component {
     const {isHide, commentList, nestedComment} = this.state;
 
     return(
-      <li className={isHide ? "ItemReview" : "ItemReview opened"}>
+      <li className={`ItemReview ${isHide && "opened"}`}>
         <div className="reviewContent">
           <div onClick={() => this.showMore()}>
           <p>
