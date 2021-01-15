@@ -24,57 +24,39 @@ class SignUp extends Component {
     };
 
     handleIdValue = (e) => {
-        this.setState(
-            {
-                idValue: e.target.value,
-            }
-            // () => this.handleSignupBtn()
-        );
+        this.setState({
+            idValue: e.target.value,
+        });
     };
 
     handlePwValue = (e) => {
-        this.setState(
-            {
-                pwValue: e.target.value,
-            }
-            // () => this.handleSignupBtn()
-        );
+        this.setState({
+            pwValue: e.target.value,
+        });
     };
 
     handlePwCheckValue = (e) => {
-        this.setState(
-            {
-                pwCheckValue: e.target.value,
-            }
-            // () => this.handleSignupBtn()
-        );
+        this.setState({
+            pwCheckValue: e.target.value,
+        });
     };
 
     handleEmailValue = (e) => {
-        this.setState(
-            {
-                emailValue: e.target.value,
-            }
-            // () => this.handleSignupBtn()
-        );
+        this.setState({
+            emailValue: e.target.value,
+        });
     };
 
     handleNameValue = (e) => {
-        this.setState(
-            {
-                nameValue: e.target.value,
-            }
-            // () => this.handleSignupBtn()
-        );
+        this.setState({
+            nameValue: e.target.value,
+        });
     };
 
     handlePhoneValue = (e) => {
-        this.setState(
-            {
-                phoneValue: e.target.value,
-            }
-            // () => this.handleSignupBtn()
-        );
+        this.setState({
+            phoneValue: e.target.value,
+        });
     };
     //account, password, name, phone, email, profile_photo
 
@@ -116,12 +98,10 @@ class SignUp extends Component {
         return (
             <div className="SignUp">
                 <div className="content">
-                    <input
-                        className="profileImg"
-                        type="file"
-                        value={profileUrl}
-                        onChange={this.handleImgValue}
-                    />
+                    <div className="profileImg">
+                        <img alt="profile_image" src={profileUrl} />
+                        <button />
+                    </div>
                     <span>* 아이디는 5자 이상의 영문자만 가능합니다.</span>
                     <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
                     <span>* 비밀번호는 8자 이상 가능합니다 (특수문자 포함).</span>
