@@ -2,6 +2,7 @@ import React from 'react'
 
 import ItemOptios from './Components/ItemOptions/ItemOptions'
 import ItemDetailMenu from './Components/ItemDetailMenu/ItemDetailMenu'
+import Footer from '../../../../components/Footer/Footer'
 
 import questionIcon from '../../../../images/ItemDetail/question.png'
 import like from '../../../../images/ItemDetail/like.png'
@@ -48,6 +49,7 @@ class ItemDetail extends React.Component {
 
     console.log(ItemDetailData)
     return(
+      <>
       <div className="ItemDetailPage">
       <section className="ItemDetail">
         <div className="imgContainer">
@@ -131,6 +133,8 @@ class ItemDetail extends React.Component {
           <ItemDetailMenu />
         </section>
       </div>
+    <Footer />
+    </>
     )
   }
 }
