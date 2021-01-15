@@ -12,14 +12,17 @@
         max-width: 500px;
         width: 500px;
     }
-
-    img {
-        margin: 10px auto;
-        width: 85px;
-        height: 85px;
-        border-radius: 50%;
-        cursor: pointer;
+    .profileImg {
+        margin: auto;
+        .imgBtn {
+            margin: 10px auto;
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
     }
+
     input {
         width: 100%;
         margin: 10px 0;

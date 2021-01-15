@@ -99,8 +99,14 @@ class SignUp extends Component {
             <div className="SignUp">
                 <div className="content">
                     <div className="profileImg">
-                        <img alt="profile_image" src={profileUrl} />
-                        <button />
+                        <input
+                            className="imgBtn"
+                            type="file"
+                            style={{
+                                backgroundImage: `url(${profileUrl})`,
+                            }}
+                            onChange={this.handleImgValue}
+                        />
                     </div>
                     <span>* 아이디는 5자 이상의 영문자만 가능합니다.</span>
                     <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
