@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Footer from "../../components/Footer/Footer";
 import "./Login.scss";
 
 // import { Link } from "react-router-dom";
@@ -14,19 +14,19 @@ class Login extends Component {
         };
     }
 
-    handleIdValue = (event) => {
+    handleIdValue = (e) => {
         this.setState(
             {
-                idValue: event.target.value,
+                idValue: e.target.value,
             },
-            () => this.checkBtnState() //value가 전부 들어오고 나서 함수실행(메서드 써주기)
+            () => this.checkBtnState()
         );
     };
 
-    handlePwValue = (event) => {
+    handlePwValue = (e) => {
         this.setState(
             {
-                pwValue: event.target.value,
+                pwValue: e.target.value,
             },
             () => this.checkBtnState()
         );
@@ -34,34 +34,63 @@ class Login extends Component {
 
     checkBtnState = () => {
         const { idValue, pwValue } = this.state;
-        const isActive = idValue.length > 5 && pwValue.length >= 8;
+        const isBtnActive = idValue.length >= 5 && pwValue.length >= 8;
 
         this.setState({
-            isBtnActive: isActive ? true : false,
+            isBtnActive,
         });
     };
 
-    handleLogin = () => {};
+    handleLogin = () => {
+        // fetch(API, {
+        //     method: "post",
+        //     body: JSON.stringify({
+        //         account: this.state.idValue,
+        //         password: this.state.pwValue,
+        //     }),
+        // })
+        //     .then((res) => res.json())
+        //     .then((res) => {
+        //         if (res.message === "SUCCESS") {
+        //             this.props.history.push("/main");
+        //             return;
+        //         }
+        //         if (res.message !== "SUCCESS") {
+        //             alert("아이디와 비밀번호를 다시 한 번 확인해주세요");
+        //         }
+        //     });
+    };
 
     render() {
         return (
             <div className="Login">
-                <article className="loginInput">
-                    <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
-                    <input type="password" placeholder="비밀번호" onChange={this.handlePwValue} />
-                </article>
-                <article className="checkBox">
-                    <input type="checkbox" id="loginState" />
-                    <label for="loginState">로그인상태유지</label>
-                </article>
-                <button className={this.state.isBtnActive} onClick={this.handleLogin}>
-                    {" "}
-                    로그인
-                </button>
-                <div className="signUpBtn">
-                    <span>회원가입</span>
-                    <span>아이디.비밀번호 찾기</span>
+                <div className="content">
+                    <article className="loginInput">
+                        <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
+                        <input
+                            type="password"
+                            placeholder="비밀번호"
+                            onChange={this.handlePwValue}
+                        />
+                    </article>
+                    <article className="loginCheckBox">
+                        <input type="checkbox" id="loginState" />
+                        <label for="loginState">로그인상태유지</label>
+                    </article>
+                    <button
+                        className={
+                            this.state.isBtnActive ? "loginBtn activeBtn" : "loginBtn inactiveBtn"
+                        }
+                        onClick={this.handleLogin}
+                    >
+                        로그인
+                    </button>
+                    <div className="signUpBtn">
+                        <span>회원가입</span>
+                        <span>아이디.비밀번호 찾기</span>
+                    </div>
                 </div>
+                <Footer />
             </div>
         );
     }

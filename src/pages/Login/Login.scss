@@ -2,57 +2,67 @@
 @import "../../styles/reset.scss";
 
 .Login {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 30px;
-    max-width: 1250px;
-    width: 1250px;
+    width: 100%;
     height: auto;
 
-    span {
-        font-size: 14px;
-        font-weight: normal;
-    }
-    .loginInput {
+    .content {
         display: flex;
         flex-direction: column;
-        width: 1250px;
-        margin-bottom: 15px;
-        border: 1px solid #e0e0e0;
+        margin: 30px auto;
+        max-width: 500px;
+        width: 500px;
+        height: auto;
 
-        input {
-            padding: 5px 10px;
-            width: 100%;
-            height: 40.8px;
-            border: none;
-            &:first-child {
-                border-bottom: 1px solid #e0e0e0;
+        span {
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .loginInput {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+
+            input {
+                padding: 5px 10px;
+                width: 100%;
+                height: 40.8px;
+                border: none;
+                &:first-child {
+                    border-bottom: 1px solid #e0e0e0;
+                }
             }
         }
-    }
-    .checkBox {
-        margin-bottom: 10px;
-        cursor: pointer;
-        input[type="checkBox"] {
-            width: 15px;
-            height: 15px;
-            margin-right: 12px;
-            background-color: $bgWhite;
+        .loginCheckBox {
+            margin-bottom: 10px;
+            cursor: pointer;
+            input[type="checkBox"] {
+                width: 15px;
+                height: 15px;
+                margin-right: 12px;
+                background-color: $bgWhite;
+            }
+            label {
+                font-size: 14px;
+            }
         }
-        label {
-            font-size: 14px;
+        .loginBtn {
+            height: 42px;
+            margin-bottom: 15px;
+            background-color: $pointGreen;
+            color: $bgWhite;
+            border: 1px solid $pointGreen;
         }
-    }
-    button {
-        height: 42px;
-        margin-bottom: 15px;
-        background-color: black;
-        color: $bgWhite;
-        border: 1px solid black;
-    }
-    .signUpBtn {
-        display: flex;
-        justify-content: space-between;
+        .activeBtn {
+            opacity: 1;
+        }
+        .inactiveBtn {
+            opacity: 0.3;
+        }
+        .signUpBtn {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 }
