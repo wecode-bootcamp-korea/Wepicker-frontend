@@ -8,6 +8,7 @@ class SignUp extends Component {
     constructor() {
         super();
         this.state = {
+            imgValue: "",
             idValue: "",
             pwValue: "",
             pwCheckValue: "",
@@ -16,6 +17,12 @@ class SignUp extends Component {
             phoneValue: "",
         };
     }
+    handleImgValue = (e) => {
+        this.setState({
+            imgValue: e.target.value,
+        });
+    };
+
     handleIdValue = (e) => {
         this.setState(
             {
@@ -72,15 +79,14 @@ class SignUp extends Component {
     //account, password, name, phone, email, profile_photo
 
     handleSignupBtn = () => {
-        const checkId = this.state.emailValue.includes("@", ".com");
-        const checkPw = this.state.pwValue.length >= 8;
-        const doubleCheckPw = this.state.pwCheckValue === this.state.pwValue;
-        if (checkId && checkPw && doubleCheckPw) {
+        const { idValue, pwValue, emailValue, pwCheckValue } = this.state;
+        const checkId = emailValue.includes("@", ".com");
+        const checkIdPw = idValue.length >= 5 && pwValue.length >= 8;
+        const doubleCheckPw = pwCheckValue === pwValue;
+        if (checkId && checkIdPw && doubleCheckPw) {
             this.setState({
                 handleSignupBtn: true,
             });
-            console.log("완료");
-            return this.props.history.push("/login");
         }
         // fetch(API, {
         //     method: "POST",
@@ -90,6 +96,7 @@ class SignUp extends Component {
         //         name: this.state.nameValue,
         //         phone: this.state.phoneValue,
         //         email: this.state.emailValue,
+        //         profile_photo: this.state.imgValue,
         //     }),
         // })
         //     .then((res) => res.json())
@@ -109,7 +116,12 @@ class SignUp extends Component {
         return (
             <div className="SignUp">
                 <div className="content">
-                    <img alt="profile_image" src={profileUrl} />
+                    <input
+                        className="profileImg"
+                        type="file"
+                        value={profileUrl}
+                        onChange={this.handleImgValue}
+                    />
                     <span>* 아이디는 5자 이상의 영문자만 가능합니다.</span>
                     <input type="text" placeholder="아이디" onChange={this.handleIdValue} />
                     <span>* 비밀번호는 8자 이상 가능합니다 (특수문자 포함).</span>
