@@ -25,17 +25,17 @@ class OptionBox extends Component {
 
   render() {
     const {quantityValue} = this.state
-    const {selectedName, selectedPrice} = this.props
+    const {id, name, price} = this.props
 
     return(
       <div className="quantityBox">
-        <label>{selectedName}</label>
+        <label>{name}</label>
           <div className="quantityForm">
             <button onClick={this.minusQuantity}>-</button>
             <input type="number" value={quantityValue} min="1" max="10"/>
             <button onClick={this.plusQunatity}>+</button>
           </div>
-          <p>{`${selectedPrice}원`}</p>
+          <p>{`${price}원`}</p>
           <button className="deleteBtn">
             <img alt="delete" src={xMark} />
           </button>

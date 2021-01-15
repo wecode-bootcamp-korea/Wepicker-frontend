@@ -15,7 +15,8 @@ class ItemDetail extends React.Component {
     super();
     this.state = {
       isPointMsgHide: true,
-      isDelieveryMsgHide: true
+      isDelieveryMsgHide: true,
+      selectedOne: []
     }
   }
 
@@ -31,10 +32,43 @@ class ItemDetail extends React.Component {
     })
   }
 
-  render() {
-    const {isPointMsgHide, isDelieveryMsgHide, ItemDetailData} = this.state;
+  selectOption = (evt) => {
+    const selectedValue = evt.target.value;
+    const optionArr = OPTIONS.filter(option => option.id === parseInt(selectedValue))
+    const {selectedOne} = this.state;
 
-    console.log(ItemDetailData)
+    this.setState({
+      selectedOne: [
+        ...selectedOne,
+        ...optionArr
+      ]
+    })
+
+    const checkId = selectedOne.some((option) => option.id === parseInt(selectedValue))
+    if(checkId) {
+      alert('이미 선택된 옵션입니다.')
+      const newArr = selectedOne.filter((option) => option.id === parseInt(selectedValue))
+      const arr = selectedOne.filter((option) => option.id !== parseInt(selectedValue))
+      this.setState({
+        selectedOne: [
+          ...newArr,
+          ...arr
+        ]
+      })
+      return;
+    } else {
+      this.setState({
+        selectedOne: [
+          ...selectedOne,
+          ...optionArr
+        ]
+      })
+    }
+  }
+
+  render() {
+    const {isPointMsgHide, isDelieveryMsgHide, ItemDetailData, selectedOne} = this.state;
+
     return(
       <>
       <div className="ItemDetailPage">
@@ -86,7 +120,9 @@ class ItemDetail extends React.Component {
               <option value="payLater">배송비 (착불)</option>
             </select>
           </div>
-          <ItemOptios />
+          <ItemOptios 
+          selectOption={this.selectOption}
+          selectedOne={selectedOne}/>
           <div className="totalPrice">
             <p>총 상품금액 (1개)</p>
             <p>4,000원</p>
@@ -118,3 +154,17 @@ class ItemDetail extends React.Component {
 }
 
 export default ItemDetail
+
+const OPTIONS =
+  [
+    {
+      id: 1,
+      name: "organic string bag",
+      price: 11000
+    },
+    {
+      id: 2,
+      name: "wrapping service",
+      price: 4000
+    }
+  ]
