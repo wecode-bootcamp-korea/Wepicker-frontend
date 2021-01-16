@@ -12,12 +12,28 @@ class ItemDetailPage extends Component {
 
   render() {
     const {
-      isPointMsgHide, isDelieveryMsgHide, selectedOne, showDelieveryMsg, showPointMsg, selectOption, minusQuantity, plusQunatity, deleteOption
+      isPointMsgHide, 
+      isDelieveryMsgHide, 
+      selectedOne, 
+      showDelieveryMsg, 
+      showPointMsg, 
+      selectOption, 
+      minusQuantity, 
+      plusQunatity, 
+      deleteOption,
+      selectWaysToPickup,
+      selectDelieveryFee,
+      addToCart
     } = this.props;
 
     let totalProductsPrice = 0;
     for(let i = 0; i < selectedOne.length; i++) {
       totalProductsPrice += selectedOne[i].price * selectedOne[i].quantity
+    }
+
+    let totalQuantity = 0;
+    for(let i = 0; i < selectedOne.length; i++) {
+      totalQuantity += selectedOne[i].quantity
     }
 
     return(
@@ -61,11 +77,11 @@ class ItemDetailPage extends Component {
             </dd>
           </dl>
           <div className="delieveryOptions">
-            <select name="waysToPickup">
+            <select onChange={selectWaysToPickup} name="waysToPickup">
               <option value="parcel">택배</option>
               <option value="visit">방문수령</option>
             </select>
-            <select name="delieveryFee">
+            <select onChange={selectDelieveryFee} name="delieveryFee">
               <option value="payFirst">배송비 (선결제)</option>
               <option value="payLater">배송비 (착불)</option>
             </select>
@@ -77,7 +93,7 @@ class ItemDetailPage extends Component {
           plusQunatity={plusQunatity}
           deleteOption={deleteOption}/>
           <div className="totalPrice">
-            <p>총 상품금액 (1개)</p>
+            <p>총 상품금액 ({totalQuantity}개)</p>
             <p>
               {totalProductsPrice}
             </p>
@@ -86,7 +102,7 @@ class ItemDetailPage extends Component {
             <button type="button">
               구매하기
             </button>
-            <button type="button">
+            <button onClick={addToCart} type="button">
               장바구니
             </button>
             <button type="button">

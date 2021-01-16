@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 
 import ItemDetailPage from './Components/ItemDetailPage/ItemDetailPage'
 import Footer from '../../../../components/Footer/Footer'
@@ -13,6 +14,9 @@ class ItemDetail extends React.Component {
       isPointMsgHide: true,
       isDelieveryMsgHide: true,
       selectedOne: [],
+      waysToPickup: 'parcel',
+      delieveryFee: 'payFirst',
+      cartList: []
     }
   }
 
@@ -100,6 +104,40 @@ class ItemDetail extends React.Component {
     })
   }
 
+  //픽업 방법 선택 이벤트
+  selectWaysToPickup = (evt) => {
+    this.setState({
+      waysToPickup: evt.target.value
+    })
+  }
+
+  //택배비 방법 선택 이벤트
+  selectDelieveryFee = (evt) => {
+    this.setState({
+      delieveryFee: evt.target.value
+    })
+  }
+
+  //장바구니 리스트 추가
+  addToCart = () => {
+    const {selectedOne} = this.state;
+    if(selectedOne.length > 0) {
+      this.setState({
+        cartList: [
+          ...selectedOne,
+          {
+            waysToPickup: this.state.waysToPickup,
+            delieveryFee: this.state.delieveryFee
+          }
+        ],
+      })
+      this.props.history.push('/cart')
+    } else {
+      alert('옵션을 선택해 주세요');
+    }
+
+  }
+
   render() {
     const {isPointMsgHide, isDelieveryMsgHide, selectedOne} = this.state;
 
@@ -114,7 +152,10 @@ class ItemDetail extends React.Component {
        selectOption={this.selectOption}
        minusQuantity={this.minusQuantity}
        plusQunatity={this.plusQunatity}
-       deleteOption={this.deleteOption}/>
+       deleteOption={this.deleteOption}
+       selectWaysToPickup={this.selectWaysToPickup}
+       selectDelieveryFee={this.selectDelieveryFee}
+       addToCart={this.addToCart} />
       <Footer />
     </>
     )
