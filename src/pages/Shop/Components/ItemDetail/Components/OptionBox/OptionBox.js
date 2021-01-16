@@ -4,38 +4,20 @@ import xMark from '../../../../../../images/OptionBox/x-mark.png'
 import './OptionBox.scss'
 
 class OptionBox extends Component {
-  constructor() {
-    super();
-    this.state = {
-      quantityValue: 1
-    }
-  }
-
-  minusQuantity = () => {
-    this.setState({
-      quantityValue: this.state.quantityValue -1
-    })
-  }
-
-  plusQunatity = () => {
-    this.setState({
-      quantityValue: this.state.quantityValue +1
-    })
-  }
-
   render() {
-    const {quantityValue} = this.state
-    const {id, name, price} = this.props
-
+    const {id, name, price, quantity, minusQuantity, plusQunatity} = this.props
     return(
       <div className="quantityBox">
         <label>{name}</label>
         <div className="quantityForm">
-          <button onClick={this.minusQuantity}>-</button>
-          <input type="number" value={quantityValue} min="1" max="10"/>
-          <button onClick={this.plusQunatity}>+</button>
+          <button onClick={() => minusQuantity(id)}>-</button>
+          <input type="number" 
+          value={quantity} 
+          min="1" 
+          max="10"/>
+          <button onClick={() => plusQunatity(id)}>+</button>
         </div>
-        <p>{`${price}원`}</p>
+        <p>{`${quantity*price}원`}</p>
         <button type="button" className="deleteBtn">
           <img alt="deleteBtn" src={xMark} />
         </button> 

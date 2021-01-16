@@ -6,7 +6,8 @@ import './SelectedOption.scss'
 
 class SelectedOption extends Component {
   render() {
-    const {selectedOne} = this.props
+    const {selectedOne, minusQuantity, plusQunatity} = this.props
+
     return(
       <div className="SelectedOption">
         {selectedOne.map((option) => {
@@ -14,7 +15,10 @@ class SelectedOption extends Component {
             <OptionBox 
             id={option.id}
             name={option.name}
-            price={option.price}/>
+            price={option.price}
+            quantity={option.quantity}
+            minusQuantity={minusQuantity}
+            plusQunatity={plusQunatity}/>
           )
         })}
       </div>

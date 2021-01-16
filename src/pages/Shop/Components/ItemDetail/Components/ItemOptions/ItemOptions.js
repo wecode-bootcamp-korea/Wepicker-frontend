@@ -7,7 +7,7 @@ import './ItemOptions.scss'
 
 class ItemOptios extends React.Component {
   render() {
-    const {selectOption, selectedOne} = this.props;
+    const {selectOption, selectedOne,  minusQuantity, plusQunatity} = this.props;
 
     return(
       <>
@@ -30,7 +30,11 @@ class ItemOptios extends React.Component {
       </div>
       <div>
         {
-          selectedOne && <SelectedOption selectedOne={selectedOne}/>
+          selectedOne && 
+          <SelectedOption 
+          selectedOne={selectedOne} 
+          minusQuantity={minusQuantity} 
+          plusQunatity={plusQunatity}/>
         }
       </div>
       </>
@@ -45,12 +49,13 @@ const OPTIONS =
     {
       id: 1,
       name: "organic string bag",
+      quatity: 1,
       price: 11000
     },
     {
       id: 2,
       name: "wrapping service",
+      quatity: 1,
       price: 4000
     }
   ]
-
