@@ -30,15 +30,15 @@ class OptionBox extends Component {
     return(
       <div className="quantityBox">
         <label>{name}</label>
-          <div className="quantityForm">
-            <button onClick={this.minusQuantity}>-</button>
-            <input type="number" value={quantityValue} min="1" max="10"/>
-            <button onClick={this.plusQunatity}>+</button>
-          </div>
-          <p>{`${price}원`}</p>
-          <button className="deleteBtn">
-            <img alt="delete" src={xMark} />
-          </button>
+        <div className="quantityForm">
+          <button onClick={this.minusQuantity}>-</button>
+          <input type="number" value={quantityValue} min="1" max="10"/>
+          <button onClick={this.plusQunatity}>+</button>
+        </div>
+        <p>{`${price}원`}</p>
+        <button type="button" className="deleteBtn">
+          <img alt="deleteBtn" src={xMark} />
+        </button> 
       </div>
     )
   }
