@@ -5,7 +5,7 @@ import './OptionBox.scss'
 
 class OptionBox extends Component {
   render() {
-    const {id, name, price, quantity, minusQuantity, plusQunatity} = this.props
+    const {id, name, price, quantity, minusQuantity, plusQunatity, deleteOption} = this.props
     return(
       <div className="quantityBox">
         <label>{name}</label>
@@ -18,7 +18,7 @@ class OptionBox extends Component {
           <button onClick={() => plusQunatity(id)}>+</button>
         </div>
         <p>{`${quantity*price}원`}</p>
-        <button type="button" className="deleteBtn">
+        <button onClick={() => deleteOption(id)} type="button" className="deleteBtn">
           <img alt="deleteBtn" src={xMark} />
         </button> 
       </div>

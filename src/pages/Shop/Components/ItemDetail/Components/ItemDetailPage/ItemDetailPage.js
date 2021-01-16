@@ -12,7 +12,7 @@ class ItemDetailPage extends Component {
 
   render() {
     const {
-      isPointMsgHide, isDelieveryMsgHide, selectedOne, showDelieveryMsg, showPointMsg, selectOption, minusQuantity, plusQunatity
+      isPointMsgHide, isDelieveryMsgHide, selectedOne, showDelieveryMsg, showPointMsg, selectOption, minusQuantity, plusQunatity, deleteOption
     } = this.props;
 
     let totalProductsPrice = 0;
@@ -74,7 +74,8 @@ class ItemDetailPage extends Component {
           selectOption={selectOption}
           selectedOne={selectedOne}
           minusQuantity={minusQuantity}
-          plusQunatity={plusQunatity}/>
+          plusQunatity={plusQunatity}
+          deleteOption={deleteOption}/>
           <div className="totalPrice">
             <p>총 상품금액 (1개)</p>
             <p>

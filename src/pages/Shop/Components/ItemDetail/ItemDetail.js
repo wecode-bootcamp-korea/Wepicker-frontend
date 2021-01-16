@@ -91,6 +91,15 @@ class ItemDetail extends React.Component {
     })
   }
 
+  //옵션 삭제 이벤트
+  deleteOption = (selectedId) => {
+    const {selectedOne} = this.state;
+    const newArr = selectedOne.filter((option) => selectedId !== option.id)
+    this.setState({
+      selectedOne: newArr
+    })
+  }
+
   render() {
     const {isPointMsgHide, isDelieveryMsgHide, selectedOne} = this.state;
 
@@ -104,7 +113,8 @@ class ItemDetail extends React.Component {
        showDelieveryMsg={this.showDelieveryMsg}
        selectOption={this.selectOption}
        minusQuantity={this.minusQuantity}
-       plusQunatity={this.plusQunatity}/>
+       plusQunatity={this.plusQunatity}
+       deleteOption={this.deleteOption}/>
       <Footer />
     </>
     )

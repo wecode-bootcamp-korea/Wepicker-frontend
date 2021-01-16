@@ -7,7 +7,7 @@ import './ItemOptions.scss'
 
 class ItemOptios extends React.Component {
   render() {
-    const {selectOption, selectedOne,  minusQuantity, plusQunatity} = this.props;
+    const {selectOption, selectedOne,  minusQuantity, plusQunatity, deleteOption} = this.props;
 
     return(
       <>
@@ -34,7 +34,8 @@ class ItemOptios extends React.Component {
           <SelectedOption 
           selectedOne={selectedOne} 
           minusQuantity={minusQuantity} 
-          plusQunatity={plusQunatity}/>
+          plusQunatity={plusQunatity}
+          deleteOption={deleteOption}/>
         }
       </div>
       </>

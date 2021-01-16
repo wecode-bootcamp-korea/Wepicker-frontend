@@ -6,7 +6,7 @@ import './SelectedOption.scss'
 
 class SelectedOption extends Component {
   render() {
-    const {selectedOne, minusQuantity, plusQunatity} = this.props
+    const {selectedOne, minusQuantity, plusQunatity, deleteOption} = this.props
 
     return(
       <div className="SelectedOption">
@@ -18,7 +18,8 @@ class SelectedOption extends Component {
             price={option.price}
             quantity={option.quantity}
             minusQuantity={minusQuantity}
-            plusQunatity={plusQunatity}/>
+            plusQunatity={plusQunatity}
+            deleteOption={deleteOption}/>
           )
         })}
       </div>
