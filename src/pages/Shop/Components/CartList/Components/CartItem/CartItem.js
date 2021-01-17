@@ -4,7 +4,7 @@ import './CartItem.scss'
 
 class CartItem extends Component {
   render() {
-    const {cartList, id, name, options, waysToPickup, delieveryFee} = this.props;
+    const {cartList, id, name, options, waysToPickup, delieveryFee, deleteList} = this.props;
 
     let totalQuantity = 0;
     for(let i = 0; i < options.length; i ++) {
@@ -60,7 +60,7 @@ class CartItem extends Component {
           {totalPrice}
         </td>
         <td>
-          <button className="deleteBtn" type="button">
+          <button onClick={() => deleteList(id)} className="deleteBtn" type="button">
             삭제
           </button>
         </td>

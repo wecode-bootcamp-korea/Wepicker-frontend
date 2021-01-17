@@ -4,14 +4,29 @@
 
   .CartList {
 
-    h1 {
-      margin-bottom: 30px;
-      font-size: 24px;
-      font-weight: 700;
+    .cartHeader {
+      display: flex;
+
+      h1 {
+        margin: 0 10px 30px 0;
+        font-size: 24px;
+        font-weight: 700;
+      }
+  
+      .cartListLength {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: #fff;
+        background-color: #373737;
+        font-size: 12px;
+        text-align: center;
+      }
     }
 
     table {
       width: 100%;
+      margin-bottom: 30px;
       thead { 
         border-bottom: 1px solid #E5E5E5;
         color: #585757;
@@ -61,6 +76,10 @@
                 border: 1px solid #E5E5E5;
                 border-radius: 16px;
                 background-color: #fff;
+
+                &:hover {
+                  cursor: pointer;
+                }
               }
             }
 
@@ -82,11 +101,41 @@
               border: 1px solid #E5E5E5;
               border-radius: 16px;
               background-color: #fff;
+
+              &:hover {
+                cursor: pointer;
+              }
             }
           }
         }
 
       }
     }
-}
+
+    .btnGroup {
+      display: flex;
+      justify-content: center;
+
+      button {
+        padding: 10px 30px;
+        border: none;
+        font-size: 12px;
+
+        &:first-child {
+          margin-right: 16px;
+          border: 1px solid #E5E5E5;
+          background-color: #fff;
+        }
+
+        &:last-child {
+          background-color: #09342C;
+          color: #fff;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }

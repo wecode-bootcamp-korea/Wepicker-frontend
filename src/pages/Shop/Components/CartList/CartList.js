@@ -23,14 +23,24 @@ class CartList extends Component{
     })
   }
 
+  deleteList = (selectedId) => {
+    const {cartList} = this.state;
+    const newArr = cartList.filter((list) => list.id !== selectedId);
+    this.setState({
+      cartList: newArr
+    })
+  }
+
   render() {
     const {cartList} = this.state;
 
     return(
     <div className="cartContainer">
         <section className="CartList">
-        <h1>장바구니</h1>
-        <span></span>
+          <div className="cartHeader">
+            <h1>장바구니</h1>
+            <div className="cartListLength">{cartList.length}</div>
+          </div>
         <table>
           <thead>
             <tr>
@@ -67,14 +77,16 @@ class CartList extends Component{
                    name={data.name}
                    options={data.options}
                    waysToPickup={data.waysToPickup}
-                   delieveryFee={data.delieveryFee} />
+                   delieveryFee={data.delieveryFee}
+                   deleteList={this.deleteList} />
                 )
               })
             }
-            <CartPriceBox />
+            <CartPriceBox
+             cartList={cartList} />
           </tbody>
         </table>
-        <div>
+        <div className="btnGroup">
           <button type="button">
             계속 쇼핑하기
           </button>
