@@ -16,7 +16,8 @@ class ItemDetail extends React.Component {
       selectedOne: [],
       waysToPickup: 'parcel',
       delieveryFee: 'payFirst',
-      cartList: []
+      cartList: [],
+      showModal: false
     }
   }
 

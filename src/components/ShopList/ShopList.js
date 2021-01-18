@@ -13,11 +13,12 @@ class ShopList extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/shoplist.json')
+    fetch('http://10.58.5.192:8000/product/all')
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         this.setState({
-          shopListData: data["PRODUCT_LISTS"]
+          shopListData: data["product_list"]
         })
       })
   }
@@ -30,7 +31,12 @@ class ShopList extends React.Component {
       <ul className="ShopList">
         {shopListData && shopListData.map((data) => {
           return(
-            <ShopItem key={data.id} id={data.id} name={data.name} price={data.price} url={data.url} />
+            <ShopItem 
+            key={data["product_id"]} 
+            productId={data["product_id"]} 
+            name={data.name} 
+            price={data.price} 
+            thumnailImage={data["thumnail_image"]} />
           )
         })}
       </ul>

@@ -5,15 +5,15 @@ import './ShopItem.scss'
 
 class ShopItem extends React.Component {
   render() {
-    const {id, name, price, url} = this.props
+    const {productId, name, price, thumnailImage} = this.props
     return(
       <li className="ShopItem">
-        <Link to={`/shop/${id}`}>
-          <img alt={name} src={url} />
+        <Link to={`/shop/${productId}`}>
+          <img alt={name} src={thumnailImage} />
         </Link>
         <div className="itemInfo">
           <strong>{name}</strong>
-          <span>{price+'원'}</span>
+          <span>{parseInt(price)+'원'}</span>
         </div>
       </li>
     )
