@@ -4,7 +4,6 @@
  }
 
 .Main {
-
             .mainBanner {
                 width: 100%;
                 margin-bottom: 20px;
@@ -12,7 +11,6 @@
                     .mainImg {
                         width: 100%;
                     }
-
             }
 
             .centerBanner {
@@ -21,6 +19,8 @@
                 width: 100%;
                 height: 500px;
                 margin-bottom: 20px;
+                animation: fadeInUp;
+                animation-duration: 4s;
                 
 
                     .midLeftBanner {
@@ -78,6 +78,8 @@
                 height: 500px;
 
                     .bottomBannerText {
+                        animation: fadeInUp;
+                        animation-duration: 4s;
                         padding-top: 80px;
                         padding-left: 100px;
                         line-height: 50px;
