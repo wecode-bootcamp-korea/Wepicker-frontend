@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade';
 import mainImg from "../../images/Main/main01.jpg";
 import './Main.scss';
 
+
 export class Main extends Component {
     render() {
         return(
@@ -16,7 +17,7 @@ export class Main extends Component {
                         src={ mainImg }/>
                     </div>  
 
-                    <Fade bottom>
+                        <Fade bottom>
                             <div className="centerBanner">
                                 <div className="midLeftBanner">
                                     <div className="centerBannerText">
@@ -32,25 +33,26 @@ export class Main extends Component {
                                             <h5 className="storeLink">스토어 소개.</h5>
                                     </div>
                                 </div>
+                       
 
                                 <div className="midRightBanner" />
                             </div>
-                    </Fade>
-                    
-                    <div className="bottomBanner">
-                        <Fade bottom>
-                                <div className="bottomBannerText">
-                                    <h4 className="subTitle">
-                                    WE PICKER OFFLINE STORE</h4>
-
-                                    <h1 className="bannerTitle"> 
-                                    자연의 건강함을 위하여<br />
-                                    지속가능한 소비문화 정착을<br />
-                                    선릉역 매장에서 시작하세요.<br />
-                                    </h1>
-                                </div>
                         </Fade>
-                    </div>
+                    
+                        <Fade effect="fadeInUp">
+                            <div className="bottomBanner">
+                                        <div className="bottomBannerText">
+                                            <h4 className="subTitle">
+                                            WE PICKER OFFLINE STORE</h4>
+
+                                            <h1 className="bannerTitle"> 
+                                            자연의 건강함을 위하여<br />
+                                            지속가능한 소비문화 정착을<br />
+                                            선릉역 매장에서 시작하세요.<br />
+                                            </h1>
+                                        </div>
+                            </div>
+                        </Fade>
 
             </section>
         );
