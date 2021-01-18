@@ -1,27 +1,22 @@
 import React, { Component } from "react";
-import Nav from '../../components/Nav/Nav';
+import Fade from 'react-reveal/Fade';
 import mainImg from "../../images/Main/main01.jpg";
 import './Main.scss';
 
-
 export class Main extends Component {
     render() {
-        return(
+        return( 
             <>
-                <nav>
-                        <Nav />
-                </nav>
-
                 <section className="Main">
-
+                    <Fade left>
                         <div className="mainBanner">
                             <img 
                             alt="Main Images" 
                             className="mainImg" 
                             src={ mainImg }/>
-                        </div>  
-
-                            
+                        </div>
+                    </Fade>  
+                            <Fade bottom delay={2000}>
                                 <div className="centerBanner">
                                     <div className="midLeftBanner">
                                         <div className="centerBannerText">
@@ -38,13 +33,12 @@ export class Main extends Component {
                                         </div>
                                     </div>
                         
-
-                                    <div className="midRightBanner" />
+                                    <div className="midRightBanner" /> 
                                 </div>
-                            
-                        
+                            </Fade>
                             
                                 <div className="bottomBanner">
+                                        <Fade bottom delay={3000}>
                                             <div className="bottomBannerText">
                                                 <h4 className="subTitle">
                                                 WE PICKER OFFLINE STORE</h4>
@@ -55,6 +49,7 @@ export class Main extends Component {
                                                 선릉역 매장에서 시작하세요.<br />
                                                 </h1>
                                             </div>
+                                        </Fade>
                                 </div>
                 </section>
             </>
