@@ -2,71 +2,71 @@
 @import "../../styles/reset.scss";
 
 .SignUp {
+  width: 100%;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 30px;
+    max-width: 500px;
+    width: 500px;
+  }
+  .profileImg {
+    margin: auto;
+    .imgBtn {
+      margin: 10px auto;
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+
+  input {
     width: 100%;
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        margin-top: 30px;
-        max-width: 500px;
-        width: 500px;
-    }
-    .profileImg {
-        margin: auto;
-        .imgBtn {
-            margin: 10px auto;
-            width: 85px;
-            height: 85px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-    }
-
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid #e0e0e0;
+    height: 40.8px;
+  }
+  span {
+    margin-top: 30px;
+    color: grey;
+    font-size: 12px;
+    line-height: 60%;
+  }
+  .checkPw {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    margin: 10px 0 40px 0;
     input {
-        width: 100%;
-        margin: 10px 0;
-        padding: 0 10px;
-        border: 1px solid #e0e0e0;
-        height: 40.8px;
+      margin: 0;
+      border: none;
+      &:first-child {
+        border-bottom: 1px solid #e0e0e0;
+      }
     }
-    span {
-        margin-top: 30px;
-        color: grey;
-        font-size: 12px;
-        line-height: 60%;
-    }
-    .checkPw {
-        display: flex;
-        flex-direction: column;
-        border: 1px solid #e0e0e0;
-        margin: 10px 0 40px 0;
-        input {
-            margin: 0;
-            border: none;
-            &:first-child {
-                border-bottom: 1px solid #e0e0e0;
-            }
-        }
-    }
-    .email {
-        margin-bottom: 30px;
-    }
-    .name {
-        margin-bottom: 30px;
-    }
+  }
+  .email {
+    margin-bottom: 30px;
+  }
+  .name {
+    margin-bottom: 30px;
+  }
 
-    .phoneContainer {
-        margin-bottom: 20px;
-        p {
-            padding-bottom: 10px;
-        }
+  .phoneContainer {
+    margin-bottom: 20px;
+    p {
+      padding-bottom: 10px;
     }
-    button {
-        height: 40px;
-        margin: 10px 0 30px 0;
-        color: $bgWhite;
-        background-color: $pointGreen;
-        cursor: pointer;
-    }
+  }
+  button {
+    height: 40px;
+    margin: 10px 0 30px 0;
+    color: $bgWhite;
+    background-color: $pointGreen;
+    cursor: pointer;
+  }
 }
