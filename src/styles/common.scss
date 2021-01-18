@@ -4,8 +4,11 @@ $bgWhite: #fff;
 $pointGreen: #09342c;
 $textColor: #121212;
 
-
 body {
   overflow-x: hidden;
   font-family: 'Poor Story', cursive;
+}
+
+input {
+    outline: none;
 }
