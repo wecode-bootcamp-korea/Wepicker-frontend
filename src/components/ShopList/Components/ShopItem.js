@@ -5,11 +5,15 @@ import './ShopItem.scss'
 
 class ShopItem extends React.Component {
   render() {
-    const {productId, name, price, thumnailImage} = this.props
+    const { productId, name, price, subImage, thumnailImage } = this.props
     return(
       <li className="ShopItem">
         <Link to={`/shop/${productId}`}>
-          <img alt={name} src={thumnailImage} />
+          <img 
+          alt={name}
+          src={thumnailImage}
+          onMouseOver={(evt) => evt.currentTarget.src = subImage}
+          onMouseOut={(evt) => evt.currentTarget.src = thumnailImage} />
         </Link>
         <div className="itemInfo">
           <strong>{name}</strong>
