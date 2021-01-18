@@ -7,10 +7,10 @@ class CartPriceBox extends Component {
     return(
       <>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td />
+        <td />
+        <td />
+        <td />
         <td>
           <div>
             <p>상품가격</p>
@@ -25,20 +25,20 @@ class CartPriceBox extends Component {
             <p>160 포인트</p>
           </div>
         </td>
-        <td></td>
+        <td />
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td />
+        <td />
+        <td />
+        <td />
         <td>
           결제금액
         </td>
         <td>
           11,000원
         </td>
-        <td></td>
+        <td />
       </tr>
     </>      
     )

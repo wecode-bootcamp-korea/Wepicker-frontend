@@ -17,7 +17,7 @@ class ItemDetail extends React.Component {
       waysToPickup: 'parcel',
       delieveryFee: 'payFirst',
       cartList: [],
-      showModal: false
+      isShowModal: false
     }
   }
 
@@ -107,15 +107,17 @@ class ItemDetail extends React.Component {
 
   //픽업 방법 선택 이벤트
   selectWaysToPickup = (evt) => {
+    const {name, value} = evt.target
     this.setState({
-      waysToPickup: evt.target.value
+      [name]: [value]
     })
   }
 
   //택배비 방법 선택 이벤트
   selectDelieveryFee = (evt) => {
+    const {name, value} = evt.target
     this.setState({
-      delieveryFee: evt.target.value
+      [name]: [value]
     })
   }
 

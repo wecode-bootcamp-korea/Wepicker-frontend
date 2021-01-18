@@ -27,14 +27,10 @@ class ItemDetailPage extends Component {
     } = this.props;
 
     let totalProductsPrice = 0;
-    for(let i = 0; i < selectedOne.length; i++) {
-      totalProductsPrice += selectedOne[i].price * selectedOne[i].quantity
-    }
+    selectedOne.map((item) => totalProductsPrice += item.quantity * item.price)
 
     let totalQuantity = 0;
-    for(let i = 0; i < selectedOne.length; i++) {
-      totalQuantity += selectedOne[i].quantity
-    }
+    selectedOne.map((item) => totalQuantity += item.quantity)
 
     return(
       <div className="ItemDetailPage">

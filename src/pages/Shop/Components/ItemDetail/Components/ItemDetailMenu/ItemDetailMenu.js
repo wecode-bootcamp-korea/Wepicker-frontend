@@ -30,7 +30,7 @@ class ItemDetailMenu extends Component {
           {MENU_TABS.map((tab, idx) => {
             return(
               <li className="menuTab" key={idx+1} onClick={() => this.clickHandler(idx+1)}>
-                {tab.name}
+                {tab}
               </li>
             )
           })}
@@ -49,16 +49,10 @@ class ItemDetailMenu extends Component {
 export default ItemDetailMenu
 
 const MENU_TABS = [
-  {
-   name: "상세정보"
-  },
-  {
-   name: "구매평"
-  },
-  {
-   name: "Q&A"
-  }
-  ];
+  "상세정보",
+  "구매평",
+  "Q&A"
+];
 
 const TAB_COMPONENTS = {
   1: <ItemDesc />,
