@@ -5,10 +5,10 @@ import './BestItem.scss'
 class BestItem extends React.Component {
 
   render() {
-    const {name, url} = this.props;
+    const {name, thumnailImage} = this.props;
     return(
           <li className="BestItem">
-            <img alt={name} src={url} />
+            <img alt={name} src={thumnailImage} />
             <p>{name}</p>
           </li>
     )

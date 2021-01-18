@@ -20,7 +20,7 @@ class Shop extends Component {
           <BestItems />
         </div>
         <div className="shopContainer">
-          <ShopFilter />
+          {/* <ShopFilter /> */}
           <div className="category">
             <Category />
           </div>

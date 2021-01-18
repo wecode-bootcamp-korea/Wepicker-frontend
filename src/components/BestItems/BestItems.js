@@ -2,6 +2,8 @@ import React from 'react'
 
 import BestItem from './Components/BestItem'
 
+import {BEST_PRODUCTS} from '../../config'
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -16,11 +18,11 @@ class BestItems extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/shoplist.json')
+    fetch(BEST_PRODUCTS)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          bestItemsList: data["PRODUCT_LISTS"]
+          bestItemsList: data["product_list"]
         })
       })
   }
@@ -44,7 +46,10 @@ class BestItems extends React.Component {
           <Slider {...sliderSettings}>
             { bestItemsList && bestItemsList.map((data) => {
             return(
-              <BestItem key={data.id} name={data.name} url={data.url} />
+              <BestItem
+               key={data.product_id} 
+               name={data.name} 
+               thumnailImage={data.thumnail_image} />
             )
             })}
           </Slider>
