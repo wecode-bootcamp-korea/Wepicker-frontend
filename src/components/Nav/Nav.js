@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import SideBar from './SideBar';
 import wepickerLogo from '../../images/Nav/wepicker_logo.png';
 import myPage from '../../images/Nav/human.png';
@@ -26,19 +27,31 @@ class Nav extends Component {
 
     render() {
         return(
-            <>
+            <>         
                 <div className="nav">
+                    <div className="sideMenuBtn" onClick={this.handleToggleClick}>
+                        <span className={this.state.topLine ? 'topLineAct' : 'topLineInAct'}/>
+                        <span className={this.state.bottomLine ? 'bottomLineAct' : 'bottomLineInAct'}/>
+                    </div>
+
                     <nav className="navBar">
                         <div className="navContents">
-                                <div className="sideMenuBtn" onClick={this.handleToggleClick}>
-                                    <span className={this.state.topLine ? 'topLineAct' : 'topLineInAct'}/>
-                                    <span className={this.state.bottomLine ? 'bottomLineAct' : 'bottomLineInAct'}/>
-                                </div>
+                                <div />
+
                                 <img alt="Main Logo" className="mainLogo"  src={wepickerLogo} />
+                                
                                 <div className="socialIcon">
-                                    <img alt="My Page Icon" className="myPageBtn"  src={myPage} />
-                                    <img alt="Cart Page Icon" className="cartPageBtn"  src={cart} />
-                                    <img alt="Wish List Page Icon" className="wishPageBtn"  src={wish} />
+                                    <Link to="#">
+                                        <img alt="My Page Icon" className="myPageBtn"  src={myPage} />
+                                    </Link>
+
+                                    <Link to="#">
+                                        <img alt="Cart Page Icon" className="cartPageBtn"  src={cart} />
+                                    </Link>
+
+                                    <Link to="#">
+                                        <img alt="Wish List Page Icon" className="wishPageBtn"  src={wish} />
+                                    </Link>
                                 </div>
                         </div>
                     </nav>

@@ -1,47 +1,28 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './SideBar.scss';
 
 class Sidebar extends Component {
-    constructor() {
-        super();
-        this.state = {
-
-        };
-      }
-
-    handleMouseHover = () => {
-        console.log("handleMouseHover 함수 실행");
-    };
-
-    handleMouseNonHover = () => {
-        console.log("handleMouseNonHover 함수 실행");
-    }
-
     render() {
         return(
             <div className="sideMenuBoard">
                 <div className="sideMenuText">
                     <ul>
-                        <li 
-                        className="firstDepth"
-                        onMouseEnter={this.handleMouseHover}
-                        onMouseLeave={this.handleMouseNonHover}>
-                            HOME
-                        </li>
+                        <Link to="../pages/Main/Main.js">
+                            <li>HOME</li>
+                        </Link>
 
-                        <li 
-                        className="firstDepth"
-                        onMouseEnter={this.handleMouseHover}
-                        onMouseLeave={this.handleMouseNonHover}>
-                            Wipicker
-                        </li>
+                        <Link to="#">
+                            <li>WEPICKER</li>
+                        </Link>
 
-                        <li 
-                        className="firstDepth"
-                        onMouseEnter={this.handleMouseHover}
-                        onMouseLeave={this.handleMouseNonHover}>
-                            SHOP
-                        </li>
+                        <Link to="#">
+                            <li>FAQ</li>
+                        </Link>
+                        
+                        <Link to="#">
+                            <li>SHOP</li>
+                        </Link>
                     </ul>
                 </div>
             </div>
