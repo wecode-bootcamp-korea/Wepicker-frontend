@@ -19,7 +19,7 @@ export class Main extends Component {
                         </div>
                     </Fade>
 
-                    <ScrollAnimation animateIn="fadeIn">
+                    <ScrollAnimation animateIn='fadeIn'>
                         <div className="centerBanner">
                             <div className="midLeftBanner">
                                 <div className="centerBannerText">
@@ -43,7 +43,7 @@ export class Main extends Component {
                     </ScrollAnimation>
                             
                     <div className="bottomBanner">
-                        <ScrollAnimation animateIn="fadeIn">
+                        <ScrollAnimation animateIn='fadeIn'>
                                 <div className="bottomBannerText">
                                     <h4 className="subTitle">
                                     WE PICKER OFFLINE STORE</h4>

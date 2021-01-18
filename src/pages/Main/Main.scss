@@ -19,8 +19,7 @@
                 width: 100%;
                 height: 500px;
                 margin-bottom: 20px;
-                animation: fadeInUp;
-                animation-duration: 4s;
+                animation: fadeInUp 3s;
                 
 
                     .midLeftBanner {
@@ -34,8 +33,7 @@
 
 
                         .centerBannerText {
-                            padding-top: 70px;
-                            padding-left: 100px;
+                            padding: 70px 100px;
                             line-height: 50px;
 
                                 .centerEngTitle {
@@ -51,6 +49,7 @@
                                 .storeLink {
                                     text-decoration: underline;
                                     font-weight: bold;
+                                    color: black;
                                 }
 
                                 .storeLink:hover {
@@ -78,10 +77,8 @@
                 height: 500px;
 
                     .bottomBannerText {
-                        animation: fadeInUp;
-                        animation-duration: 4s;
-                        padding-top: 80px;
-                        padding-left: 100px;
+                        animation: fadeInUp 4s;
+                        padding: 80px 100px;
                         line-height: 50px;
                         font-weight: 900;
                     }
