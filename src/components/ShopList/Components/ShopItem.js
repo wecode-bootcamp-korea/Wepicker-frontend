@@ -8,7 +8,7 @@ class ShopItem extends React.Component {
     const { productId, name, price, subImage, thumnailImage } = this.props
     return(
       <li className="ShopItem">
-        <Link to={`/shop/${productId}`}>
+        <Link to={`/product/${productId}`}>
           <img 
           alt={name}
           src={thumnailImage}

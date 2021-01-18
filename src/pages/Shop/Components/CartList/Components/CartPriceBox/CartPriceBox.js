@@ -4,15 +4,6 @@ import './CartPriceBox.scss'
 
 class CartPriceBox extends Component {
   render() {
-    const {cartList} = this.props;
-
-    let totalPrice = 0;
-    for(let i = 0; i < cartList.length; i++) {
-      totalPrice += cartList[i].price * cartList[i].quantity;
-    }
-
-    console.log(totalPrice)
-
     return(
       <>
       <tr>
@@ -29,7 +20,7 @@ class CartPriceBox extends Component {
         </td>
         <td>
           <div>
-            <p>{totalPrice}원</p>
+            <p>원</p>
             <p>3,000원</p>
             <p>160 포인트</p>
           </div>
