@@ -4,19 +4,33 @@
 .Agreement {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     justify-content: center;
+=======
+>>>>>>> main
     margin: auto;
     margin-top: 30px;
     max-width: 1280px;
     width: 1280px;
 
+<<<<<<< HEAD
     span {
         margin-right: 10px;
+=======
+    button {
+        width: 16px;
+        height: 16px;
+        margin-right: 20px;
+        border: 1px solid #e0e0e0;
+        background-color: $bgWhite;
+        border-radius: 3px;
+>>>>>>> main
     }
     .checkFirst {
         margin-bottom: 10px;
         cursor: pointer;
     }
+<<<<<<< HEAD
     .checkFirstContent {
         width: 1280px;
         height: 200px;
@@ -29,10 +43,13 @@
         overflow: auto;
         outline: none;
     }
+=======
+>>>>>>> main
     .checkSecond {
         margin-bottom: 10px;
         cursor: pointer;
     }
+<<<<<<< HEAD
     .checkSecondContent {
         width: 1280px;
         height: 200px;
@@ -62,5 +79,10 @@
             background-color: $pointGreen;
             border: 1px solid $pointGreen;
         }
+=======
+    .checkThird {
+        margin-bottom: 10px;
+        cursor: pointer;
+>>>>>>> main
     }
 }

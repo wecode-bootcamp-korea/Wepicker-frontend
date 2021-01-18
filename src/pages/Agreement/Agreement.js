@@ -7,6 +7,7 @@ class Agreement extends Component {
         return (
             <div className="Agreement">
                 <div className="checkFirst">
+<<<<<<< HEAD
                     <input type="checkbox" />
                     <span>이용약관 동의</span>
                     <span style={{ color: "red" }}>(필수)</span>
@@ -363,6 +364,21 @@ class Agreement extends Component {
                     <button className="cancle">취소</button>
                     <button className="signup">가입하기</button>
                 </div>
+=======
+                    <button></button>
+                    <span>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</span>
+                </div>
+                <div className="checkSecond">
+                    <button></button>
+                    <span>이용약관 동의 (필수)</span>
+                </div>
+                <textarea></textarea>
+                <div className="checkThird">
+                    <button></button>
+                    <span>개인정보 수집 및 이용 (필수)</span>
+                </div>
+                <textarea></textarea>
+>>>>>>> main
             </div>
         );
     }
