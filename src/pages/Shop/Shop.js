@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import Category from '../../components/Category/Category'
 import ShopList from '../../components/ShopList/ShopList'
 import BestItems from '../../components/BestItems/BestItems'
+import Pagination from './Components/Pagination/Pagination'
 import Footer from '../../components/Footer/Footer'
 
 import {PRODUCT_LIST} from '../.././config'
@@ -14,21 +15,23 @@ class Shop extends Component {
     super();
     this.state = {
       shopListData: [],
-      filterValue: 'recent',
-      currentCategory: ''
+      maxPage: 0
     }
   }
 
+  //최초 상품 리스트 렌더
   componentDidMount() {
     fetch(PRODUCT_LIST)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          shopListData: data["product_list"]
+          shopListData: data.product_list,
+          maxPage: data.product_list[0].max_page
         })
       })
   }
 
+  //필터 선택시 상품리스트 필터링하여 데이터 불러오기 기능
   selectFilter = (evt) => {
     const currentVal = evt.target.value;
     fetch(`${PRODUCT_LIST}?ordering=${currentVal}`)
@@ -40,6 +43,7 @@ class Shop extends Component {
       })
   }
 
+  //카테고리 클릭시 데이터 불러오기 기능
   selectCategory = (url) => {
     if(url !== '') {
       fetch(`${PRODUCT_LIST}?category=${url}`)
@@ -52,8 +56,19 @@ class Shop extends Component {
     } 
   }
 
+  //페이지네이션 클릭시 데이터 불러오기
+  paginationHandler = (page) => {
+    fetch(`${PRODUCT_LIST}?page=${page}`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          shopListData: data.product_list,
+        })
+      })
+  }
+
   render() {
-    const {shopListData, filterValue} = this.state;
+    const {shopListData, maxPage} = this.state;
 
     return(
       <>
@@ -73,6 +88,9 @@ class Shop extends Component {
             <ShopList
             shopListData={shopListData}
             selectFilter={this.selectFilter} />
+            <Pagination
+             paginationHandler={this.paginationHandler}
+             maxPage={maxPage} />
           </div>
         </div>
       </div>
