@@ -3,51 +3,16 @@ import React from 'react'
 import ShopItem from './Components/ShopItem'
 import ShopFilter from '../../pages/Shop/Components/ShopFilter/ShopFilter'
 
-import {PRODUCT_LIST} from '../.././config'
 import './ShopList.scss'
 
 class ShopList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      shopListData: [],
-      filterValue: 'recent'
-    }
-  }
-
-  componentDidMount() {
-    fetch(PRODUCT_LIST)
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          shopListData: data["product_list"]
-        })
-      })
-  }
-
-  componentDidUpdate() {
-    const {filterValue} = this.state;
-    fetch(`PRODUCT_LIST?ordering=${filterValue}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-      })
-  }
-
-  selectFilter = (evt) => {
-    this.setState({
-      filterValue: evt.target.value
-    })
-  }
-
-
   render() {
-    const {shopListData, filterValue} = this.state;
+    const {shopListData, selectFilter} = this.props
 
     return(
       <>
         <ShopFilter
-        selectFilter={this.selectFilter}
+        selectFilter={selectFilter}
         />
         <ul className="ShopList">
         {shopListData && shopListData.map((data) => {

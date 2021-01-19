@@ -4,9 +4,10 @@ import './CategoryItem.scss'
 
 class CategoryItem extends React.Component {
   render() {
-    const {category} = this.props
+    const {category, selectCategory, url} = this.props
+
     return(
-      <li className="CategoryItem">
+      <li onClick={() => selectCategory(url)} className="CategoryItem">
         {category}
       </li>
     )
