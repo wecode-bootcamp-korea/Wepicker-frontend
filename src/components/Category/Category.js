@@ -28,6 +28,6 @@ const CATEGORIES =
 {
   '카테고리': '',
   'SHOP': '',
-  'LIVING': '?category=1',
-  'KITCHEN': '?category=2'
+  'LIVING': 1,
+  'KITCHEN': 2
 } 

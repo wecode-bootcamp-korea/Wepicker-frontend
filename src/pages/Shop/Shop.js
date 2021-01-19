@@ -41,9 +41,15 @@ class Shop extends Component {
   }
 
   selectCategory = (url) => {
-    this.setState({
-      currentCategory: url
-    })
+    if(url !== '') {
+      fetch(`${PRODUCT_LIST}?category=${url}`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.setState({
+            shopListData: data.product_list
+          })
+        })
+    } 
   }
 
   render() {
