@@ -1,0 +1,76 @@
+@import "../../styles/common.scss";
+@import "../../styles/reset.scss";
+
+.Agreement {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+    max-width: 1280px;
+    width: 1280px;
+
+    span {
+        margin-right: 10px;
+    button {
+        width: 16px;
+        height: 16px;
+        margin-right: 20px;
+        border: 1px solid #e0e0e0;
+        background-color: $bgWhite;
+        border-radius: 3px;
+    }
+    .checkFirst {
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    .checkFirstContent {
+        width: 1280px;
+        height: 200px;
+        margin: 20px 0 50px 0;
+        border: none;
+        border-bottom: 1px solid darkgray;
+        font-size: 13px;
+        text-align: left;
+        line-height: normal;
+        overflow: auto;
+        outline: none;
+    }
+    .checkSecond {
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    .checkSecondContent {
+        width: 1280px;
+        height: 200px;
+        margin: 20px 0 50px 0;
+        border: none;
+        border-bottom: 1px solid darkgray;
+        font-size: 13px;
+        text-align: left;
+        line-height: normal;
+        overflow: auto;
+        outline: none;
+    }
+    .btn {
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        font-size: 12px;
+        .cancle {
+            width: 100px;
+            margin-right: 5px;
+            background-color: $bgWhite;
+            border: 1px solid grey;
+        }
+        .signup {
+            width: 150px;
+            color: $bgWhite;
+            background-color: $pointGreen;
+            border: 1px solid $pointGreen;
+        }
+    .checkThird {
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+}
