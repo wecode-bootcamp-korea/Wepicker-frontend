@@ -11,8 +11,9 @@ class OptionBox extends Component {
         <label>{name}</label>
         <div className="quantityForm">
           <button onClick={() => minusQuantity(id)}>-</button>
-          <input type="number" 
-          value={quantity} 
+          <input 
+          type="number" 
+          value="1" 
           min="1" 
           max="10"/>
           <button onClick={() => plusQunatity(id)}>+</button>

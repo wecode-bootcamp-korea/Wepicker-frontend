@@ -13,8 +13,10 @@ class ItemDetailPage extends Component {
   render() {
     const {
       isPointMsgHide, 
-      isDelieveryMsgHide, 
-      selectedOne, 
+      isDelieveryMsgHide,
+      selectedOne,
+      productList,
+      showingImg,
       showDelieveryMsg, 
       showPointMsg, 
       selectOption, 
@@ -23,30 +25,35 @@ class ItemDetailPage extends Component {
       deleteOption,
       selectWaysToPickup,
       selectDelieveryFee,
-      addToCart
+      addToCart,
+      toggleImg
     } = this.props;
 
     let totalProductsPrice = 0;
-    selectedOne.map((item) => totalProductsPrice += item.quantity * item.price)
+    selectedOne.map((item) => totalProductsPrice)
 
     let totalQuantity = 0;
-    selectedOne.map((item) => totalQuantity += item.quantity)
 
     return(
       <div className="ItemDetailPage">
       <section className="ItemDetail">
         <div className="imgContainer">
-          <img className="유기농 스트링 에코백" src="https://images.unsplash.com/photo-1537130508986-20f4fd870b4e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80" />
+          <img className={productList.product_name} src={showingImg} />
           <div className="imgThumnail">
-            <img className="유기농 스트링 에코백" src="https://images.unsplash.com/photo-1537130508986-20f4fd870b4e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80" />
-            <img className="유기농 스트링 에코백" src="https://images.unsplash.com/photo-1537130508986-20f4fd870b4e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80" />
+            {
+              productList.image_list && productList.image_list.map((img, idx) => {
+                return(
+                  <img onClick={() => toggleImg(idx)} className={productList.product_name} src={productList.image_list[idx]} />
+                )
+              })
+            }
           </div>
         </div>
         <div className="itemInfo">
-          <h1>유기농 스트링 에코백</h1>
-          <p className="price">11,000</p>
+          <h1>{productList.product_name}</h1>
+          <p className="price">{`${parseInt(productList.product_price)}원`}</p>
           <div className="dividerLine"></div>
-          <p>유기농 면으로 만든 무형광, 무표백 스트링 그물백.</p>
+          <p>{productList.description}</p>
           <dl>
             <dt>구매혜택</dt>
             <dd>
@@ -87,7 +94,10 @@ class ItemDetailPage extends Component {
           selectedOne={selectedOne}
           minusQuantity={minusQuantity}
           plusQunatity={plusQunatity}
-          deleteOption={deleteOption}/>
+          deleteOption={deleteOption}
+          productList={productList}
+          optionList={productList.option_list}
+          />
           <div className="totalPrice">
             <p>총 상품금액 ({totalQuantity}개)</p>
             <p>

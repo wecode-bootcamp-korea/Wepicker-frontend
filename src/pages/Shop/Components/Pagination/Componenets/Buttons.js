@@ -7,7 +7,7 @@ class Buttons extends Component {
     const {paginationHandler, idx} = this.props
 
     return(
-      <button data-idx={idx} onClick={() => paginationHandler(idx+1)}>
+      <button className="paginationBtn" data-idx={idx} onClick={() => paginationHandler(idx+1)}>
         {idx+1}
       </button>
     )

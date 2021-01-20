@@ -8,7 +8,7 @@ class ItemOption extends Component {
     return(
       <option value={optionId}>
         {optionName}
-        {optionPrice}
+        {optionPrice && `${parseInt(optionPrice)}원`}
       </option>
     )
   }

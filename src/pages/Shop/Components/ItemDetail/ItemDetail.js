@@ -1,6 +1,8 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 
+import {SERVER_URL} from '../../../../config'
+
 import ItemDetailPage from './Components/ItemDetailPage/ItemDetailPage'
 import Footer from '../../../../components/Footer/Footer'
 
@@ -13,12 +15,27 @@ class ItemDetail extends React.Component {
     this.state = {
       isPointMsgHide: true,
       isDelieveryMsgHide: true,
+      productList: [],
       selectedOne: [],
+      showingImg: '',
       waysToPickup: 'parcel',
       delieveryFee: 'payFirst',
       cartList: [],
       isShowModal: false
     }
+  }
+
+  //최초 렌더시 상품 상세페이지 데이터 불러오기
+  componentDidMount() {
+    // fetch(`${SERVER_URL}/product/${parseInt(this.props.match.params.id)}`)
+    fetch('/data/productList.json')
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          productList: data.product_dict,
+          showingImg: data.product_dict.image_list[0]
+        })
+      })
   }
 
   //구매혜택, 배송비 추가 정보 제공 클릭이벤트
@@ -36,10 +53,9 @@ class ItemDetail extends React.Component {
 
   //선택된 옵션 확인하는 이벤트
   selectOption = (evt) => {
+    const {productList, selectedOne} = this.state;
     const selectedValue = evt.target.value;
-    const optionArr = OPTIONS.filter(option => option.id === parseInt(selectedValue))
-    const {selectedOne} = this.state;
-
+    const optionArr = productList.option_list.filter(option => option.option_id === parseInt(selectedValue))
     this.setState({
       selectedOne: [
         ...selectedOne,
@@ -47,11 +63,11 @@ class ItemDetail extends React.Component {
       ]
     })
 
-    const checkId = selectedOne.some((option) => option.id === parseInt(selectedValue))
+    const checkId = selectedOne.some((option) => option.option_id === parseInt(selectedValue))
     if(checkId) {
       alert('이미 선택된 옵션입니다.')
-      const newArr = selectedOne.filter((option) => option.id === parseInt(selectedValue))
-      const arr = selectedOne.filter((option) => option.id !== parseInt(selectedValue))
+      const newArr = selectedOne.filter((option) => option.option_id === parseInt(selectedValue))
+      const arr = selectedOne.filter((option) => option.option_id !== parseInt(selectedValue))
       this.setState({
         selectedOne: [
           ...newArr,
@@ -73,7 +89,7 @@ class ItemDetail extends React.Component {
   minusQuantity = (selectedId) => {
     const {selectedOne} = this.state;
     const newArr = selectedOne.map((option) => {
-      if(selectedId === option.id) {
+      if(selectedId === option.product_id) {
         option.quantity -= 1;
       }
       return option;
@@ -86,7 +102,7 @@ class ItemDetail extends React.Component {
   plusQunatity = (selectedId) => {
     const {selectedOne} = this.state;
     const newArr = selectedOne.map((option) => {
-      if(selectedId === option.id) {
+      if(selectedId === option.product_id) {
         option.quantity += 1;
       }
       return option;
@@ -99,7 +115,7 @@ class ItemDetail extends React.Component {
   //옵션 삭제 이벤트
   deleteOption = (selectedId) => {
     const {selectedOne} = this.state;
-    const newArr = selectedOne.filter((option) => selectedId !== option.id)
+    const newArr = selectedOne.filter((option) => selectedId !== option.product_id)
     this.setState({
       selectedOne: newArr
     })
@@ -141,8 +157,15 @@ class ItemDetail extends React.Component {
 
   }
 
+  toggleImg = (idx) => {
+    const {productList} = this.state;
+    this.setState({
+      showingImg: productList.image_list[idx]
+    })
+  }
+
   render() {
-    const {isPointMsgHide, isDelieveryMsgHide, selectedOne} = this.state;
+    const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg} = this.state;
 
     return(
       <>
@@ -150,6 +173,8 @@ class ItemDetail extends React.Component {
        isPointMsgHide={isPointMsgHide}
        isDelieveryMsgHide={isDelieveryMsgHide}
        selectedOne={selectedOne}
+       productList={productList}
+       showingImg={showingImg}
        showPointMsg={this.showPointMsg}
        showDelieveryMsg={this.showDelieveryMsg}
        selectOption={this.selectOption}
@@ -158,7 +183,8 @@ class ItemDetail extends React.Component {
        deleteOption={this.deleteOption}
        selectWaysToPickup={this.selectWaysToPickup}
        selectDelieveryFee={this.selectDelieveryFee}
-       addToCart={this.addToCart} />
+       addToCart={this.addToCart}
+       toggleImg={this.toggleImg} />
       <Footer />
     </>
     )
@@ -166,19 +192,3 @@ class ItemDetail extends React.Component {
 }
 
 export default ItemDetail
-
-const OPTIONS =
-  [
-    {
-      id: 1,
-      name: "organic string bag",
-      quantity: 1,
-      price: 11000
-    },
-    {
-      id: 2,
-      name: "wrapping service",
-      quantity: 1,
-      price: 4000
-    }
-  ]

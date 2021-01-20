@@ -41,7 +41,6 @@ class ItemDetailMenu extends Component {
           </div>
         </section>
       </section>
-
     )
   }
 }
