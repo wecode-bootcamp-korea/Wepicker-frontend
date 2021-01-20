@@ -1,7 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 
-import {SERVER_URL} from '../../../../config'
+import {SERVER_URL, CART} from '../../../../config'
 
 import ItemDetailPage from './Components/ItemDetailPage/ItemDetailPage'
 import Footer from '../../../../components/Footer/Footer'
@@ -20,7 +20,6 @@ class ItemDetail extends React.Component {
       showingImg: '',
       waysToPickup: 'parcel',
       delieveryFee: 'payFirst',
-      cartList: [],
       isShowModal: false
     }
   }
@@ -89,8 +88,8 @@ class ItemDetail extends React.Component {
   minusQuantity = (selectedId) => {
     const {selectedOne} = this.state;
     const newArr = selectedOne.map((option) => {
-      if(selectedId === option.product_id) {
-        option.quantity -= 1;
+      if(selectedId === option.option_id) {
+        option.option_quantity -= 1;
       }
       return option;
     })
@@ -102,11 +101,12 @@ class ItemDetail extends React.Component {
   plusQunatity = (selectedId) => {
     const {selectedOne} = this.state;
     const newArr = selectedOne.map((option) => {
-      if(selectedId === option.product_id) {
-        option.quantity += 1;
+      if(selectedId === option.option_id) {
+        option.option_quantity += 1;
       }
       return option;
     })
+    console.log(newArr)
     this.setState({
       selectedOne: newArr
     })
@@ -115,7 +115,7 @@ class ItemDetail extends React.Component {
   //옵션 삭제 이벤트
   deleteOption = (selectedId) => {
     const {selectedOne} = this.state;
-    const newArr = selectedOne.filter((option) => selectedId !== option.product_id)
+    const newArr = selectedOne.filter((option) => selectedId !== option.option_id)
     this.setState({
       selectedOne: newArr
     })
@@ -139,24 +139,24 @@ class ItemDetail extends React.Component {
 
   //장바구니 리스트 추가
   addToCart = () => {
-    const {selectedOne} = this.state;
-    if(selectedOne.length > 0) {
-      this.setState({
-        cartList: [
-          ...selectedOne,
-          {
-            waysToPickup: this.state.waysToPickup,
-            delieveryFee: this.state.delieveryFee
-          }
-        ],
+    const {productList, selectedOne} = this.state
+    fetch(`${CART}`, {
+      method: "POST",
+      body: JSON.stringify({
+        product_id: productList.product_id,
+        product_quantity: productList.product_quantity,
+        option_list: selectedOne,
+        delivery_cost_id: 0
       })
-      this.props.history.push('/cart')
-    } else {
-      alert('옵션을 선택해 주세요');
-    }
-
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res)
+    })
+    this.props.history.push('/cart')
   }
 
+  //이미지 토글 함수
   toggleImg = (idx) => {
     const {productList} = this.state;
     this.setState({
@@ -164,9 +164,32 @@ class ItemDetail extends React.Component {
     })
   }
 
+  //상품 수량 조절 함수
+  controlProductQuantity = (evt) => {
+    const {name} = evt.target;
+    const {productList} = this.state
+    if(name === 'plus') {
+      const newData = {
+        ...productList,
+        product_quantity : productList.product_quantity += 1
+      }
+      this.setState({
+        productList: newData
+      })
+    } else {
+      const newData = {
+        ...productList,
+        product_quantity : productList.product_quantity -= 1
+      }
+      this.setState({
+        productList: newData
+      })
+    }
+  }
+
   render() {
     const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg} = this.state;
-
+    console.log(productList)
     return(
       <>
       <ItemDetailPage
@@ -183,6 +206,7 @@ class ItemDetail extends React.Component {
        deleteOption={this.deleteOption}
        selectWaysToPickup={this.selectWaysToPickup}
        selectDelieveryFee={this.selectDelieveryFee}
+       controlProductQuantity={this.controlProductQuantity}
        addToCart={this.addToCart}
        toggleImg={this.toggleImg} />
       <Footer />

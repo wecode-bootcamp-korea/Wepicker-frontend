@@ -7,7 +7,7 @@ import './ItemOptions.scss'
 
 class ItemOptios extends React.Component {
   render() {
-    const {selectOption, selectedOne, minusQuantity, plusQunatity, deleteOption, optionList, productList} = this.props;
+    const {selectOption, selectedOne, minusQuantity, plusQunatity, deleteOption, optionList, productList, controlProductQuantity, productQuantity} = this.props;
 
     return(
       <>
@@ -23,7 +23,7 @@ class ItemOptios extends React.Component {
                optionId={option.option_id}
                optionName={option.option_name} 
                optionPrice={option.option_price}
-
+               optionQuantity={option.option_quantity}
                />
               )
             })
@@ -38,9 +38,10 @@ class ItemOptios extends React.Component {
           minusQuantity={minusQuantity} 
           plusQunatity={plusQunatity}
           deleteOption={deleteOption}
-          productId={productList.product_id}
-          productName={productList.product_name}
-          productPrice={productList.product_price}/>
+          productList={productList}
+          controlProductQuantity={controlProductQuantity}
+          productQunatity={productQuantity}
+          />
         }
       </div>
       </>

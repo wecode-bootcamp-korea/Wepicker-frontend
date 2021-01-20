@@ -6,24 +6,22 @@ import './SelectedOption.scss'
 
 class SelectedOption extends Component {
   render() {
-    const {selectedOne, minusQuantity, plusQunatity, deleteOption, productId, productName, productPrice} = this.props
+    const {selectedOne, minusQuantity, plusQunatity, deleteOption, productList, controlProductQuantity, productQuantity} = this.props
 
     return(
       <>
       <div className="quantityBox">
-        <label>{productName}</label>
+        <label>{productList.product_name}</label>
         <div className="quantityForm">
-          <button onClick={() => minusQuantity(productId)}>-</button>
-          <input type="number" 
-          value="1"
+          <button name="minus" onClick={controlProductQuantity}>-</button>
+          <input 
+          type="number" 
+          value={productList.product_quantity}
           min="1" 
           max="10"/>
-          <button onClick={() => plusQunatity(productId)}>+</button>
+          <button name="plus" onClick={controlProductQuantity}>+</button>
         </div>
-        {/* <p>{`${quantity*productPrice}원`}</p> */}
-        <button onClick={() => deleteOption(productId)} type="button" className="deleteBtn">
-          {/* <img alt="deleteBtn" src={xMark} /> */}
-        </button> 
+        <p>{`${productList.product_quantity*productList.product_price}원`}</p>
       </div>
       <div className="SelectedOption">
         {selectedOne.map((option) => {
@@ -32,6 +30,7 @@ class SelectedOption extends Component {
             id={option.option_id}
             name={option.option_name}
             price={option.option_price}
+            quantity={option.option_quantity}
             minusQuantity={minusQuantity}
             plusQunatity={plusQunatity}
             deleteOption={deleteOption}/>

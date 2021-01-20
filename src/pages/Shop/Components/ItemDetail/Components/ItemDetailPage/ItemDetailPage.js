@@ -26,13 +26,24 @@ class ItemDetailPage extends Component {
       selectWaysToPickup,
       selectDelieveryFee,
       addToCart,
-      toggleImg
+      toggleImg,
+      controlProductQuantity,
+      productQuantity
     } = this.props;
 
-    let totalProductsPrice = 0;
-    selectedOne.map((item) => totalProductsPrice)
+    let totalProductsPrice = productList.product_quantity * parseInt(productList.product_price);
+    selectedOne.map((option) => {
+      if(option.option_price) {
+        totalProductsPrice += option.option_quantity * parseInt(option.option_price)
+      }
+    })
 
-    let totalQuantity = 0;
+    let totalQuantity = productList.product_quantity;
+    selectedOne.map((option) => {
+      if(option.option_quantity) {
+        totalQuantity += option.option_quantity
+      }
+    })
 
     return(
       <div className="ItemDetailPage">
@@ -41,7 +52,7 @@ class ItemDetailPage extends Component {
           <img className={productList.product_name} src={showingImg} />
           <div className="imgThumnail">
             {
-              productList.image_list && productList.image_list.map((img, idx) => {
+              productList.image_list && productList.image_list.map((_, idx) => {
                 return(
                   <img onClick={() => toggleImg(idx)} className={productList.product_name} src={productList.image_list[idx]} />
                 )
@@ -97,11 +108,13 @@ class ItemDetailPage extends Component {
           deleteOption={deleteOption}
           productList={productList}
           optionList={productList.option_list}
+          controlProductQuantity={controlProductQuantity}
+          productQunatity={productQuantity}
           />
           <div className="totalPrice">
             <p>총 상품금액 ({totalQuantity}개)</p>
             <p>
-              {totalProductsPrice}
+              {totalProductsPrice}원
             </p>
           </div>
           <div className="btnGroup">

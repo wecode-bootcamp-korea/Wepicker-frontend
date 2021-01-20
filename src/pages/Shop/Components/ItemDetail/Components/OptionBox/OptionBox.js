@@ -9,16 +9,20 @@ class OptionBox extends Component {
     return(
       <div className="quantityBox">
         <label>{name}</label>
-        <div className="quantityForm">
+        {
+          price && <div className="quantityForm">
           <button onClick={() => minusQuantity(id)}>-</button>
           <input 
           type="number" 
-          value="1" 
+          value={quantity} 
           min="1" 
           max="10"/>
           <button onClick={() => plusQunatity(id)}>+</button>
         </div>
-        <p>{`${quantity*price}원`}</p>
+        }
+        {
+          price && <p>{`${quantity*price}원`}</p>
+        }
         <button onClick={() => deleteOption(id)} type="button" className="deleteBtn">
           <img alt="deleteBtn" src={xMark} />
         </button> 
