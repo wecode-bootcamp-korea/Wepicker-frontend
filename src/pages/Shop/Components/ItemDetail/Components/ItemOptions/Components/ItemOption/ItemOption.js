@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 import './ItemOption.scss'
 
 class ItemOption extends Component {

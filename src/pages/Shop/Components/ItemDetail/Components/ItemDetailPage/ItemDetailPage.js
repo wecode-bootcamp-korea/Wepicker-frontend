@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-
 import ItemOptios from '../ItemOptions/ItemOptions'
 import ItemDetailMenu from '../ItemDetailMenu/ItemDetailMenu'
-
 import questionIcon from '../../../../../../images/ItemDetail/question.png'
 import like from '../../../../../../images/ItemDetail/like.png'
-
 import './ItemDetailPage.scss'
 
 class ItemDetailPage extends Component {

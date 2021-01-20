@@ -1,7 +1,5 @@
 import React from 'react'
-
 import CategoryItem from './Components/CategoryItem/CategoryItem'
-
 import './Category.scss'
 class Category extends React.Component {
   render() {

@@ -1,8 +1,6 @@
 import React from 'react'
-
 import ShopItem from './Components/ShopItem'
 import ShopFilter from '../../pages/Shop/Components/ShopFilter/ShopFilter'
-
 import './ShopList.scss'
 
 class ShopList extends React.Component {
@@ -18,12 +16,12 @@ class ShopList extends React.Component {
         {shopListData && shopListData.map((data) => {
           return(
             <ShopItem
-            key={data["product_id"]} 
-            productId={data["product_id"]} 
+            key={data.product_id} 
+            productId={data.product_id} 
             name={data.name} 
             price={data.price} 
-            thumnailImage={data["thumnail_image"]}
-            subImage = {data["sub_image"]} />
+            thumnailImage={data.thumnail_image}
+            subImage = {data.sub_image} />
           )
         })}
       </ul>

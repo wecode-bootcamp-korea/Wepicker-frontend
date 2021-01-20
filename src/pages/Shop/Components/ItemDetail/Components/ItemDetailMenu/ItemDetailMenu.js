@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-
 import ItemDesc from '../ItemDesc/ItemDesc'
 import ItemReviewList from '../ItemReviewList/ItemReviewList'
 import ItemAsk from '../ItemAsk/ItemAsk'
-
 import './ItemDetailMenu.scss'
 
 class ItemDetailMenu extends Component {

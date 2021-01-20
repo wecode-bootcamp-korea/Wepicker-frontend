@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
 import Buttons from './Componenets/Buttons'
-
 import './Pagination.scss'
 
 class Pagination extends Component {

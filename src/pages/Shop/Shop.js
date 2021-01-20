@@ -1,13 +1,10 @@
 import React, {Component} from 'react'
-
 import Category from '../../components/Category/Category'
 import ShopList from '../../components/ShopList/ShopList'
 import BestItems from '../../components/BestItems/BestItems'
 import Pagination from './Components/Pagination/Pagination'
 import Footer from '../../components/Footer/Footer'
-
 import {PRODUCT_LIST} from '../.././config'
-
 import './Shop.scss'
 
 class Shop extends Component {

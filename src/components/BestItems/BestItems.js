@@ -1,12 +1,9 @@
 import React from 'react'
-
-import BestItem from './Components/BestItem'
-
-import {BEST_PRODUCTS} from '../../config'
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import BestItem from './Components/BestItem'
+import {BEST_PRODUCTS} from '../../config'
 import './BestItems.scss'
 
 class BestItems extends React.Component {
@@ -30,15 +27,6 @@ class BestItems extends React.Component {
   render() {
     const {bestItemsList} = this.state;
 
-    const sliderSettings = {
-      dots: false,
-      infinite: true,
-      slidesToShow: 5,
-      slidesToScroll: 2,
-      autoplay: true,
-      autoplaySpeed: 3000
-    }
-
     return(
       <section className="BestItems">
         <h1>베스트 제품</h1>
@@ -60,3 +48,12 @@ class BestItems extends React.Component {
 }
 
 export default BestItems
+
+const sliderSettings = {
+  dots: false,
+  infinite: true,
+  slidesToShow: 5,
+  slidesToScroll: 2,
+  autoplay: true,
+  autoplaySpeed: 3000
+}

@@ -1,8 +1,6 @@
 import React from 'react'
-
 import ItemOption from './Components/ItemOption/ItemOption'
 import SelectedOption from './Components/SelectedOption/SelectedOption'
-
 import './ItemOptions.scss'
 
 class ItemOptios extends React.Component {

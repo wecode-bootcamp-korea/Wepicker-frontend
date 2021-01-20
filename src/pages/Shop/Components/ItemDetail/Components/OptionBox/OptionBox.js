@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import xMark from '../../../../../../images/OptionBox/x-mark.png'
 import './OptionBox.scss'
 

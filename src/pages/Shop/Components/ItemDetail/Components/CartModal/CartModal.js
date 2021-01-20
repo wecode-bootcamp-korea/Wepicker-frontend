@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import './CartModal.scss'
 
 class  CartModal extends Component {

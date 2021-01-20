@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
 import OptionBox from '../../../OptionBox/OptionBox'
-
 import './SelectedOption.scss'
 
 class SelectedOption extends Component {

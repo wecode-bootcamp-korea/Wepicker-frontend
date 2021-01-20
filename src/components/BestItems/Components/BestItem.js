@@ -1,5 +1,4 @@
 import React from 'react'
-
 import './BestItem.scss'
 
 class BestItem extends React.Component {

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 import './ItemAsk.scss'
 
 class ItemAsk extends Component {

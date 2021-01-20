@@ -1,13 +1,9 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-
 import {SERVER_URL, CART} from '../../../../config'
-
 import ItemDetailPage from './Components/ItemDetailPage/ItemDetailPage'
 import Footer from '../../../../components/Footer/Footer'
-
 import './ItemDetail.scss'
-
 
 class ItemDetail extends React.Component {
   constructor() {

@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
-
 import ItemReview from './Components/ItemReview'
-
 import './ItemReviewList.scss'
 
 class ItemReviewList extends Component {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-
 import './ShopFilter.scss'
+
 class ShopFilter extends Component {
   render() {
     const {selectFilter} = this.props
@@ -8,9 +8,10 @@ class ShopFilter extends Component {
         <select onChange={selectFilter} className="ShopFilter" name="ordering">
         {
           Object.entries(FILTER_MENU).map((menu, idx) => {
+            const [text, value] = menu
             return (
-              <option key={idx+1} value={menu[1]}>
-                {menu[0]}
+              <option key={idx+1} value={value}>
+                {text}
               </option>
             )
           })
