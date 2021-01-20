@@ -1,6 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {SERVER_URL, CART} from '../../../../config'
+import Nav from '../../../../../src/components/Nav/Nav'
 import ItemDetailPage from './Components/ItemDetailPage/ItemDetailPage'
 import Footer from '../../../../components/Footer/Footer'
 import './ItemDetail.scss'
@@ -188,6 +189,7 @@ class ItemDetail extends React.Component {
     console.log(productList)
     return(
       <>
+      <Nav />
       <ItemDetailPage
        isPointMsgHide={isPointMsgHide}
        isDelieveryMsgHide={isDelieveryMsgHide}
