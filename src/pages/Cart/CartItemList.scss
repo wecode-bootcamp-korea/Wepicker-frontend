@@ -1,0 +1,52 @@
+.CartItemList {
+
+    .selectCartItem {
+
+        .itemCheckSection {
+            width: 40px;
+        }
+
+        .itemInfo {
+            width: 500px;
+
+            .itemProfileImg {
+                width: 60px;
+                height: 60px;
+            }
+
+            .itemTitle {
+                font-size: 14px;
+            }
+
+            .itemDetailInfo {
+                .itemSelectOption {
+                    font-size: 14px;
+                    color: #4A4A4A;
+                }
+
+                .itemSelectNumber {
+                    font-size: 14px;
+                    color: #4A4A4A;
+                }
+            }
+        }
+
+        .itemWish {
+            width: 80px;
+        }
+
+        .itemAmount {
+            width: 120px;
+        }
+
+        .deliverWay {
+            width: 130px;
+        }
+
+        .deliverPrice {
+            width: 130px;
+        }
+
+    }
+}
+
