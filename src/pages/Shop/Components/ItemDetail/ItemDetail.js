@@ -22,10 +22,8 @@ class ItemDetail extends React.Component {
     }
   }
 
-  //최초 렌더시 상품 상세페이지 데이터 불러오기
   componentDidMount() {
     fetch(`${SERVER_URL}/product/${parseInt(this.props.match.params.id)}`)
-    // fetch('/data/productList.json')
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -35,7 +33,6 @@ class ItemDetail extends React.Component {
       })
   }
 
-  //구매혜택, 배송비 추가 정보 제공 클릭이벤트
   showPointMsg = () => {
     this.setState({
       isPointMsgHide: !this.state.isPointMsgHide
@@ -48,7 +45,6 @@ class ItemDetail extends React.Component {
     })
   }
 
-  //선택된 옵션 확인하는 이벤트
   selectOption = (evt) => {
     const {productList, selectedOne} = this.state;
     const selectedValue = evt.target.value;
@@ -82,7 +78,6 @@ class ItemDetail extends React.Component {
     }
   }
 
-  //수량 버튼 이벤트
   minusQuantity = (selectedId) => {
     const {selectedOne} = this.state;
     const newArr = selectedOne.map((option) => {
@@ -109,7 +104,6 @@ class ItemDetail extends React.Component {
     })
   }
 
-  //옵션 삭제 이벤트
   deleteOption = (selectedId) => {
     const {selectedOne} = this.state;
     const newArr = selectedOne.filter((option) => selectedId !== option.option_id)
@@ -118,7 +112,6 @@ class ItemDetail extends React.Component {
     })
   }
 
-  //픽업 방법 선택 이벤트
   selectWaysToPickup = (evt) => {
     const {name, value} = evt.target
     this.setState({
@@ -126,7 +119,6 @@ class ItemDetail extends React.Component {
     })
   }
 
-  //택배비 방법 선택 이벤트
   selectDelieveryFee = (evt) => {
     const {name, value} = evt.target
     const {waysToPickup, delieveryFee} =this.state
@@ -139,12 +131,8 @@ class ItemDetail extends React.Component {
         [name]: parseInt(value)
       })
     }
-    // this.setState({
-    //   [name]: parseInt(value)
-    // })
   }
 
-  //장바구니 리스트 추가
   addToCart = () => {
     const {productList, selectedOne, waysToPickup, delieveryFee} = this.state
     fetch(`${CART}`, {
@@ -167,7 +155,6 @@ class ItemDetail extends React.Component {
     this.props.history.push('/cart')
   }
 
-  //이미지 토글 함수
   toggleImg = (idx) => {
     const {productList} = this.state;
     this.setState({
@@ -175,7 +162,6 @@ class ItemDetail extends React.Component {
     })
   }
 
-  //상품 수량 조절 함수
   controlProductQuantity = (evt) => {
     const {name} = evt.target;
     const {productList} = this.state
@@ -198,7 +184,6 @@ class ItemDetail extends React.Component {
     }
   }
 
-  //위시리스트 추가 기능
   addToWish = () => {
     this.setState({
       isWished: !this.state.isWished
@@ -208,7 +193,7 @@ class ItemDetail extends React.Component {
   render() {
     const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg, isWished, waysToPickup} = this.state;
     localStorage.setItem("token", 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.ASvJ2_fpdrgdgd6ExV4WtFhy6HSW7ZAEo19wdXQKMAA');
-    console.log(waysToPickup, this.state.delieveryFee)
+
     return(
       <>
       <Nav />
