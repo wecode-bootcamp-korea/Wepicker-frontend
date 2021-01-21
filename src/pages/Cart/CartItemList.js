@@ -6,7 +6,7 @@ class CartItemList extends React.Component {
         super();
         this.state = {
             initData: [],
-            total:0
+            productPriceTotal:0
         };
     }
 
@@ -24,10 +24,10 @@ class CartItemList extends React.Component {
 
     handleItemPriceAddRemove = (e, price) => {
         e.target?.checked && this.setState({
-            total: (this.state.total + price),
+            productPriceTotal: (this.state.productPriceTotal + price),
         })
         !(e.target?.checked) && this.setState({
-            total: (this.state.total - price),
+            productPriceTotal: (this.state.productPriceTotal - price),
         })
     }
 
@@ -66,17 +66,14 @@ class CartItemList extends React.Component {
                                 </th>
                                 <th className="itemWish">위시</th>
                                 <th className="itemAmount">
-                                    <div className="quantityBox">
                                         <div className="quantityForm">
-                                        <button name="minus" onClick={}>-</button>
+                                        <button name="minus">-</button>
                                         <input 
                                         type="number" 
-                                        value={productList.product_quantity}
+                                        value="ex"
                                         min="1" 
                                         max="10"/>
-                                        <button name="plus" onClick={}>+</button>
-                                        </div>
-                                        <p>{`${productList.product_quantity*productList.product_price}원`}</p>
+                                        <button name="plus">+</button>
                                     </div>
                                 </th>
                                 <th className="deliverWay">
@@ -100,18 +97,32 @@ class CartItemList extends React.Component {
                                 </th>
                                 <th></th>
                             </tr>
-                            <tr>
-                                <th>
-                                    <div>{product.itemPrice}원</div>
-                                    <div></div>
-                                    <div>
-                                    {`${parseInt(product.itemPrice)*0.05} 포인트`
-                                    }</div>
-                                </th>
-                            </tr>
                         </table>
                         )
-                    })}
+                    }
+                )
+            }
+                        <table>
+                            <tr>
+                                <td className="blankSectionOne" />
+
+                                <td>
+                                    <div>
+                                    원
+                                    </div>
+
+                                    <div>
+                                    무료 & 3,000원
+                                    </div>
+                                    
+                                    <div>
+                                    포인트
+                                    </div>
+                                </td>
+
+                                <td className="blankSectionTwo" />
+                            </tr>
+                        </table>
 
                     <div>
                         <span>상품가격</span>
@@ -119,8 +130,8 @@ class CartItemList extends React.Component {
                         <span>적립예정 포인트</span>
                     </div>
 
-                    <div>결제금액</div>
-                    <div>{this.state.total}</div>
+                    <div>상품가격</div>
+                    <div>{this.state.productPriceTotal}</div>
 
                     <div></div>
                 </section>
@@ -129,3 +140,6 @@ class CartItemList extends React.Component {
 }
 
 export default CartItemList
+
+//{product.itemPrice}
+// /{`${parseInt(product.itemPrice)*0.05} 포인트`}
