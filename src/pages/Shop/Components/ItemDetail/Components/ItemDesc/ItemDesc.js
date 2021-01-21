@@ -3,26 +3,8 @@ import {SERVER_URL} from '../../../../../../config'
 import './ItemDesc.scss'
 
 class ItemDesc extends Component {
-  constructor() {
-    super();
-    this.state = {
-      productList: [],
-    }
-  }
-
-  componentDidMount() {
-    // fetch(`${SERVER_URL}/product/${parseInt(this.props.match.params.id)}`)
-    fetch('/data/productList.json')
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          productList: data.product_dict
-        })
-      })
-  }
-
   render() {
-    const {productList} = this.state
+    const {productList} = this.props;
 
     return(
       <div className="ItemDesc">
