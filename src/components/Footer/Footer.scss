@@ -46,6 +46,11 @@
                         color: white;
                         font-size: 18px;
 
+                        a {
+                            text-decoration: none;
+                            color: #ffffff;
+                        }
+
                         .topMenu, .bottomMenu {
                             display: flex;
                             justify-content: space-between;
