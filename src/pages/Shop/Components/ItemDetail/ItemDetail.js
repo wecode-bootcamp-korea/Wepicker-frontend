@@ -16,7 +16,7 @@ class ItemDetail extends React.Component {
       selectedOne: [],
       showingImg: '',
       isWished: false,
-      waysToPickup: 0,
+      waysToPickup: 1,
       delieveryFee: 1,
       isShowModal: false
     }
@@ -121,7 +121,6 @@ class ItemDetail extends React.Component {
   //픽업 방법 선택 이벤트
   selectWaysToPickup = (evt) => {
     const {name, value} = evt.target
-    console.log(name,value,'asdfasdfasdfasddfda');
     this.setState({
       [name]: parseInt(value)
     })
@@ -130,9 +129,19 @@ class ItemDetail extends React.Component {
   //택배비 방법 선택 이벤트
   selectDelieveryFee = (evt) => {
     const {name, value} = evt.target
-    this.setState({
-      [name]: [value]
-    })
+    const {waysToPickup, delieveryFee} =this.state
+    if(waysToPickup === 2) {
+      this.setState({
+        delieveryFee: 3
+      })
+    } else {
+      this.setState({
+        [name]: parseInt(value)
+      })
+    }
+    // this.setState({
+    //   [name]: parseInt(value)
+    // })
   }
 
   //장바구니 리스트 추가
@@ -148,7 +157,7 @@ class ItemDetail extends React.Component {
         quantity: productList.product_quantity,
         price: productList.product_price,
         option_list: selectedOne,
-        delivery_cost: `${waysToPickup} + ${delieveryFee}`
+        delivery_cost: [waysToPickup, delieveryFee]
       })
     })
     .then((res) => res.json())
@@ -199,7 +208,7 @@ class ItemDetail extends React.Component {
   render() {
     const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg, isWished, waysToPickup} = this.state;
     localStorage.setItem("token", 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.ASvJ2_fpdrgdgd6ExV4WtFhy6HSW7ZAEo19wdXQKMAA');
-    console.log(typeof waysToPickup);
+    console.log(waysToPickup, this.state.delieveryFee)
     return(
       <>
       <Nav />

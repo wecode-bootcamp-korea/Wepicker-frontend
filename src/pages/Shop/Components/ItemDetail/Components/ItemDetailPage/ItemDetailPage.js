@@ -94,10 +94,10 @@ class ItemDetailPage extends Component {
           </dl>
           <div className="delieveryOptions">
             <select onChange={selectWaysToPickup} name="waysToPickup">
-              <option value="0">택배</option>
-              <option value="3">방문수령</option>
+              <option value="1">택배</option>
+              <option value="2">방문수령</option>
             </select>
-            <select className={`selectDelieveryFee ${(waysToPickup === 3) ? 'hide' : ''}`} onChange={selectDelieveryFee} name="delieveryFee">
+            <select className={`selectDelieveryFee ${(waysToPickup === 2) ? 'hide' : ''}`} onChange={selectDelieveryFee} name="delieveryFee">
               <option value="1">배송비 (선결제)</option>
               <option value="2">배송비 (착불)</option>
             </select>
