@@ -15,16 +15,17 @@ class ItemDetail extends React.Component {
       productList: [],
       selectedOne: [],
       showingImg: '',
-      waysToPickup: 'parcel',
-      delieveryFee: 'payFirst',
+      isWished: false,
+      waysToPickup: 0,
+      delieveryFee: 1,
       isShowModal: false
     }
   }
 
   //최초 렌더시 상품 상세페이지 데이터 불러오기
   componentDidMount() {
-    // fetch(`${SERVER_URL}/product/${parseInt(this.props.match.params.id)}`)
-    fetch('/data/productList.json')
+    fetch(`${SERVER_URL}/product/${parseInt(this.props.match.params.id)}`)
+    // fetch('/data/productList.json')
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -103,7 +104,6 @@ class ItemDetail extends React.Component {
       }
       return option;
     })
-    console.log(newArr)
     this.setState({
       selectedOne: newArr
     })
@@ -136,14 +136,18 @@ class ItemDetail extends React.Component {
 
   //장바구니 리스트 추가
   addToCart = () => {
-    const {productList, selectedOne} = this.state
+    const {productList, selectedOne, waysToPickup, delieveryFee} = this.state
     fetch(`${CART}`, {
       method: "POST",
+      headers: {
+        Authorization: localStorage.getItem("token")
+      },
       body: JSON.stringify({
-        product_id: productList.product_id,
-        product_quantity: productList.product_quantity,
+        product: productList.product_id,
+        quantity: productList.product_quantity,
+        price: productList.product_price,
         option_list: selectedOne,
-        delivery_cost_id: 0
+        delivery_cost: `${waysToPickup} + ${delieveryFee}`
       })
     })
     .then((res) => res.json())
@@ -184,9 +188,16 @@ class ItemDetail extends React.Component {
     }
   }
 
+  //위시리스트 추가 기능
+  addToWish = () => {
+    this.setState({
+      isWished: !this.state.isWished
+    })
+  }
+
   render() {
-    const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg} = this.state;
-    console.log(productList)
+    const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg, isWished} = this.state;
+    localStorage.setItem("token", 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.ASvJ2_fpdrgdgd6ExV4WtFhy6HSW7ZAEo19wdXQKMAA');
     return(
       <>
       <Nav />
@@ -196,6 +207,7 @@ class ItemDetail extends React.Component {
        selectedOne={selectedOne}
        productList={productList}
        showingImg={showingImg}
+       isWished={isWished}
        showPointMsg={this.showPointMsg}
        showDelieveryMsg={this.showDelieveryMsg}
        selectOption={this.selectOption}
@@ -206,7 +218,8 @@ class ItemDetail extends React.Component {
        selectDelieveryFee={this.selectDelieveryFee}
        controlProductQuantity={this.controlProductQuantity}
        addToCart={this.addToCart}
-       toggleImg={this.toggleImg} />
+       toggleImg={this.toggleImg}
+       addToWish={this.addToWish} />
       <Footer />
     </>
     )

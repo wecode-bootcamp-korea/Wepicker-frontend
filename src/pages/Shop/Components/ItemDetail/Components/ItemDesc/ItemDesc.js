@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {SERVER_URL} from '../../../../../../config'
 import './ItemDesc.scss'
 
 class ItemDesc extends Component {

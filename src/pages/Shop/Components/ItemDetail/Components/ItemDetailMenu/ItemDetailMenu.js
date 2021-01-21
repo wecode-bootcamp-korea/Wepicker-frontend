@@ -21,6 +21,7 @@ class ItemDetailMenu extends Component {
 
   render() {
     const {currentTab} = this.state;
+    const {productList} = this.props;
 
     return (
       <section className="ItemDetailMenu">

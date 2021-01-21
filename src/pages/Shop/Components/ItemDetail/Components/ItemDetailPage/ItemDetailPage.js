@@ -3,6 +3,7 @@ import ItemOptios from '../ItemOptions/ItemOptions'
 import ItemDetailMenu from '../ItemDetailMenu/ItemDetailMenu'
 import questionIcon from '../../../../../../images/ItemDetail/question.png'
 import like from '../../../../../../images/ItemDetail/like.png'
+import liked from '../../../../../../images/ItemDetail/liked.png'
 import './ItemDetailPage.scss'
 
 class ItemDetailPage extends Component {
@@ -25,7 +26,9 @@ class ItemDetailPage extends Component {
       addToCart,
       toggleImg,
       controlProductQuantity,
-      productQuantity
+      productQuantity,
+      addToWish,
+      isWished
     } = this.props;
 
     let totalProductsPrice = productList.product_quantity * parseInt(productList.product_price);
@@ -65,7 +68,7 @@ class ItemDetailPage extends Component {
           <dl>
             <dt>구매혜택</dt>
             <dd>
-              80 포인트 적립예정
+              {productList.product_price * 0.05} 포인트 적립예정
               <button type="button" onClick={showPointMsg}>
                 <img alt="more info" src={questionIcon} />
               </button>
@@ -89,12 +92,12 @@ class ItemDetailPage extends Component {
           </dl>
           <div className="delieveryOptions">
             <select onChange={selectWaysToPickup} name="waysToPickup">
-              <option value="parcel">택배</option>
-              <option value="visit">방문수령</option>
+              <option value="0">택배</option>
+              <option value="3">방문수령</option>
             </select>
             <select onChange={selectDelieveryFee} name="delieveryFee">
-              <option value="payFirst">배송비 (선결제)</option>
-              <option value="payLater">배송비 (착불)</option>
+              <option value="1">배송비 (선결제)</option>
+              <option value="2">배송비 (착불)</option>
             </select>
           </div>
           <ItemOptios 
@@ -121,17 +124,18 @@ class ItemDetailPage extends Component {
             <button onClick={addToCart} type="button">
               장바구니
             </button>
-            <button type="button">
+            <button onClick={addToWish} type="button">
               <div className="likeContainer">
-                <img alt="like" src={like} />
-                <span>0</span>
+                <img alt="like" src={!isWished ? like : liked} />
+                <span>{!isWished ? 0 : 1}</span>
               </div>
             </button>
           </div>
         </div>
       </section>
         <section className="ItemDetailInfo">
-          <ItemDetailMenu />
+          <ItemDetailMenu
+           productList={productList} />
         </section>
       </div>
     )
