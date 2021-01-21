@@ -1,0 +1,38 @@
+.BestItems {
+  height: 315px;
+  padding: 30px;
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .bestItemList {
+    width: 1200px;
+
+      .slick-arrow {
+        display: block;
+      }
+  
+      .slick-prev {
+        left: 10px;
+        z-index: 1;
+  
+        &:before {
+          content: url('../../images/BestItems/prevArrow.png')
+        }
+      }
+  
+      .slick-next {
+        right: 10px;
+        z-index: 1;
+  
+        &:before {
+          content: url('../../images/BestItems/nextArrow.png')
+        }
+      }
+
+    
+  }
+}

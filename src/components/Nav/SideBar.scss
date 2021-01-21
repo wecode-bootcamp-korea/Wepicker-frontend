@@ -1,0 +1,41 @@
+.sideMenuBoard {
+    z-index: 100;
+    background-color: #fbf6ee;
+    width: 450px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    padding: 20px 0;
+    
+        .sideMenuText {
+            width: 210px;
+            height: 349px;
+            list-style: none;
+            font-size: 22px;
+            font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP', sans-serif;
+            font-weight: bold;
+
+            ul {
+                li {
+                    position: relative;
+                    padding: 0 0 40px;
+                }             
+            
+                li:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .sideMenuText a {
+            text-decoration: none;
+            color: #111111;
+        }
+
+}
+
+
+
+

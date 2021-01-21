@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Fade from 'react-reveal/Fade';
 import mainImg from "../../images/Main/main01.jpg";
@@ -24,7 +25,6 @@ export class Main extends Component {
                         <div className="centerBannerText">
                             <h1 className="centerEngTitle">
                             PACKAGE-FREE LIFESTYLE</h1>
-
                             <h2 className="centerKorTitle"> 
                             제로 웨이스트<br />
                             라이프스타일 플랫폼<br />
@@ -52,6 +52,7 @@ export class Main extends Component {
                         </div>
                 </ScrollAnimation>
             </div>
+            <Footer />
         </section>
         );
     }

@@ -22,8 +22,7 @@ class CartItemList extends React.Component {
         })
     }
 
-    handleItemPriceAddRemove = (e, price) => { 
-        console.log("handleItemPriceAddRemove 함수 실행")
+    handleItemPriceAddRemove = (e, price) => {
         e.target?.checked && this.setState({
             total: (this.state.total + price),
         })
@@ -37,7 +36,6 @@ class CartItemList extends React.Component {
                 <section className="CartItemList">
                     {this.state.initData.map(product => {
                     return (
-
                         <table>
                             <tr 
                             className="selectCartItem" 
@@ -68,11 +66,18 @@ class CartItemList extends React.Component {
                                 </th>
                                 <th className="itemWish">위시</th>
                                 <th className="itemAmount">
-                                    <div className="correctNumber">
-                                    {product.itemNumber}개
+                                    <div className="quantityBox">
+                                        <div className="quantityForm">
+                                        <button name="minus" onClick={}>-</button>
+                                        <input 
+                                        type="number" 
+                                        value={productList.product_quantity}
+                                        min="1" 
+                                        max="10"/>
+                                        <button name="plus" onClick={}>+</button>
+                                        </div>
+                                        <p>{`${productList.product_quantity*productList.product_price}원`}</p>
                                     </div>
-                                    <button className="changeNumber">변경
-                                    </button>
                                 </th>
                                 <th className="deliverWay">
                                     <select>
