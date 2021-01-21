@@ -18,10 +18,10 @@ class Nav extends Component {
     }
 
     handleToggleClick = () => {
-        const { activatedTopLine, bottomLine, sideMenuBar } = this.state;
+        const { activatedTopLine, activatedBottomLine, sideMenuBar } = this.state;
         this.setState({
         activatedTopLine: !activatedTopLine,
-        activatedBottomLine: !bottomLine,
+        activatedBottomLine: !activatedBottomLine,
         sideMenuBar: !sideMenuBar
         });
     };
