@@ -28,9 +28,10 @@ class ItemDetailPage extends Component {
       controlProductQuantity,
       productQuantity,
       addToWish,
-      isWished
+      isWished,
+      waysToPickup
     } = this.props;
-
+   
     let totalProductsPrice = productList.product_quantity * parseInt(productList.product_price);
     selectedOne.map((option) => {
       if(option.option_price) {
@@ -44,6 +45,7 @@ class ItemDetailPage extends Component {
         totalQuantity += option.option_quantity
       }
     })
+
 
     return(
       <div className="ItemDetailPage">
@@ -95,7 +97,7 @@ class ItemDetailPage extends Component {
               <option value="0">택배</option>
               <option value="3">방문수령</option>
             </select>
-            <select onChange={selectDelieveryFee} name="delieveryFee">
+            <select className={`selectDelieveryFee ${(waysToPickup === 3) ? 'hide' : ''}`} onChange={selectDelieveryFee} name="delieveryFee">
               <option value="1">배송비 (선결제)</option>
               <option value="2">배송비 (착불)</option>
             </select>

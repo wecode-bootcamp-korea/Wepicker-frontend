@@ -155,9 +155,14 @@
           &:first-child {
             margin-right: 8px;
           }
+
         }
       }
-  
+
+      .hide {
+        display: none
+      }
+      
       .totalPrice {
         padding: 0 15px;
         display: flex;

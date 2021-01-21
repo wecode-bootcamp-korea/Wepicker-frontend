@@ -121,8 +121,9 @@ class ItemDetail extends React.Component {
   //픽업 방법 선택 이벤트
   selectWaysToPickup = (evt) => {
     const {name, value} = evt.target
+    console.log(name,value,'asdfasdfasdfasddfda');
     this.setState({
-      [name]: [value]
+      [name]: parseInt(value)
     })
   }
 
@@ -196,8 +197,9 @@ class ItemDetail extends React.Component {
   }
 
   render() {
-    const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg, isWished} = this.state;
+    const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg, isWished, waysToPickup} = this.state;
     localStorage.setItem("token", 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.ASvJ2_fpdrgdgd6ExV4WtFhy6HSW7ZAEo19wdXQKMAA');
+    console.log(typeof waysToPickup);
     return(
       <>
       <Nav />
@@ -208,6 +210,7 @@ class ItemDetail extends React.Component {
        productList={productList}
        showingImg={showingImg}
        isWished={isWished}
+       waysToPickup={waysToPickup}
        showPointMsg={this.showPointMsg}
        showDelieveryMsg={this.showDelieveryMsg}
        selectOption={this.selectOption}
