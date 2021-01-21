@@ -8,16 +8,12 @@ class Sidebar extends Component {
         <div className="sideMenuBoard">
             <div className="sideMenuText">
                 <ul>
-                    <Link to="#">
+                    <Link to="/">
                         <li>HOME</li>
                     </Link>
-                    <Link to="#">
                         <li>WEPICKER</li>
-                    </Link>
-                    <Link to="#">
                         <li>FAQ</li>
-                    </Link>
-                    <Link to="#">
+                    <Link to="/product/all">
                         <li>SHOP</li>
                     </Link>
                 </ul>

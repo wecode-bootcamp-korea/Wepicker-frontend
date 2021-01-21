@@ -1,0 +1,24 @@
+{
+  "CART_LIST": [
+    {
+      "id": 1,
+      "name": "유기농 스트링 에코백",
+      "waysToPickup": "parcel",
+      "delieveryFee": "payFirst",
+      "options": [
+        {
+          "id": 1,
+          "name": "organic string bag",
+          "price": 11000,
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "name": "wrapping service",
+          "price": 4000,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "product_dict": {
+      "description": "테스트",
+      "image_list": [
+          "https://www.ikea.com/kr/ko/images/products/ikea-365-pot-with-lid-stainless-steel-glass__0333666_PE523577_S5.JPG?f=xxs",
+          "https://image.ytn.co.kr/general/jpg/2017/1018/201710181100063682_d.jpg"
+      ],
+      "option_list": [
+          {
+              "option_id": 3,
+              "option_name": "설명서",
+              "option_price": null,
+              "option_quantity": null
+          },
+          {
+              "option_id": 4,
+              "option_name": "뚜껑",
+              "option_price": "1000.00",
+              "option_quantity": 1
+          }
+      ],
+      "product_id": 1,
+      "product_name": "냄비",
+      "product_price": "29900.00",
+      "product_quantity": 1
+  }
+}

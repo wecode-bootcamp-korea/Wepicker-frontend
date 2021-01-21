@@ -1,0 +1,21 @@
+.ItemDetailMenu {
+  .ItemDetailMenuList {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border-bottom: 1px solid #E3E2E0;
+  
+    .menuTab {
+      width: 33%;
+      padding: 15px 0;
+      font-weight: 500;
+
+      &:hover {
+        color: #585757;
+        background-color: #f0eeea;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -18,10 +18,10 @@ class Nav extends Component {
     }
 
     handleToggleClick = () => {
-        const { activatedTopLine, bottomLine, sideMenuBar } = this.state;
+        const { activatedTopLine, activatedBottomLine, sideMenuBar } = this.state;
         this.setState({
         activatedTopLine: !activatedTopLine,
-        activatedBottomLine: !bottomLine,
+        activatedBottomLine: !activatedBottomLine,
         sideMenuBar: !sideMenuBar
         });
     };
@@ -37,12 +37,14 @@ class Nav extends Component {
             <div className="navBar">
                 <div className="navContents">
                     <div />
+                    <Link to="/">
                     <img alt="Main Logo" className="mainLogo"  src={wepickerLogo} />
+                    </Link>
                     <div className="socialIcon">
-                        <Link to="#">
-                            <img alt="My Page Icon" className="myPageBtn"  src={myPage} />
+                        <Link to="/login">
+                        <img alt="My Page Icon" className="myPageBtn"  src={myPage} />
                         </Link>
-                        <Link to="#">
+                        <Link to="/cart">
                             <img alt="Cart Page Icon" className="cartPageBtn"  src={cart} />
                         </Link>
                         <Link to="#">
