@@ -1,7 +1,7 @@
 import React from 'react';
-import './EmptyCart.scss';
+import './CartPage.scss';
 
-class EmptyCart extends React.Component {
+class CartPage extends React.Component {
     render() {
       return (
           <section className="cartPage">
@@ -46,4 +46,4 @@ class EmptyCart extends React.Component {
     }
   }
   
-  export default EmptyCart
+  export default CartPage

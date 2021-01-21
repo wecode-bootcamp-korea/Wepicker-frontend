@@ -97,11 +97,6 @@ class CartItemList extends React.Component {
                             </tr>
                             <tr>
                                 <th>
-                                    <div>상품가격</div>
-                                    <div>배송비</div>
-                                    <div>적립예정 포인트</div>
-                                </th>
-                                <th>
                                     <div>{product.itemPrice}원</div>
                                     <div></div>
                                     <div>
@@ -112,10 +107,19 @@ class CartItemList extends React.Component {
                         </table>
                         )
                     })}
+
+                    <div>
+                        <span>상품가격</span>
+                        <span>배송비</span>
+                        <span>적립예정 포인트</span>
+                    </div>
+
                     <div>결제금액</div>
                     <div>{this.state.total}</div>
+
+                    <div></div>
                 </section>
-                )
+        )
     }
 }
 
