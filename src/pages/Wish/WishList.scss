@@ -1,0 +1,50 @@
+.WishList {
+  padding: 80px 30px;
+
+  .container {
+
+    .headerSection {
+      position: relative;
+      display: flex;
+  
+      h1 {
+        margin: 0 7px 24px 0;
+        font-size: 20px;
+        font-weight: 700;
+      }
+  
+      span {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #09342C;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      button {
+        padding: 7px 10px;
+        margin-left: auto;
+        position: absolute;
+        right: 30px;
+        top: 0;
+        border: none;
+        border-radius: 5px;
+        background-color: #09342C;
+        color: #fff;
+        transition: background-color 2s ease;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #010303;
+          }
+      }
+    }
+  
+    .itemContainer {
+      display: flex;
+    }
+  }
+}
