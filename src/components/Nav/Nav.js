@@ -47,7 +47,7 @@ class Nav extends Component {
                         <Link to="/cart">
                             <img alt="Cart Page Icon" className="cartPageBtn"  src={cart} />
                         </Link>
-                        <Link to="#">
+                        <Link to="/wishlist">
                             <img alt="Wish List Page Icon" className="wishPageBtn"  src={wish} />
                         </Link>
                     </div>
