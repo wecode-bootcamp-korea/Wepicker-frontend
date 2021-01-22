@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import Nav from '../../components/Nav/Nav';
+import Bestitem from '../../components/BestItems/BestItems';
 import Footer from '../../components/Footer/Footer';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Fade from 'react-reveal/Fade';
@@ -9,7 +11,9 @@ import './Main.scss';
 
 export class Main extends Component {
     render() {
-        return( 
+        return(
+        <>
+        <Nav/> 
         <section className="Main">
             <Fade left>
                 <div className="mainBanner">
@@ -39,6 +43,11 @@ export class Main extends Component {
                     <div className="midRightBanner" /> 
                 </div>
             </ScrollAnimation>
+
+            <div className="BestItemSection">
+                 <Bestitem/>
+            </div>
+            
             <div className="bottomBanner">
                 <ScrollAnimation animateIn='fadeIn'>
                         <div className="bottomBannerText">
@@ -54,6 +63,7 @@ export class Main extends Component {
             </div>
             <Footer />
         </section>
+        </>
         );
     }
 }

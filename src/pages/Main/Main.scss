@@ -67,6 +67,12 @@
                 }
         }
 
+        .BestItemSection {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+
         .bottomBanner {
             background-image: url("../../images/Main/office.jpg");
             background-repeat: no-repeat;
