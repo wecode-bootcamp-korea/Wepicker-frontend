@@ -1,0 +1,246 @@
+$animation-duration: 350ms;
+
+.CartItemList {
+
+    .selectCartItem {
+        border-bottom: 1px solid #dfdfdf;
+
+        .itemCheckSection {
+            width: 40px;
+            padding: 15px 15px;
+
+            input {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 16px;
+                height: 16px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .itemInfo {
+            width: 500px;
+
+            .itemInfoContent {
+                width: 100%;
+                display: inline-flex;
+                justify-content: left;
+                align-items: center;
+                padding: 15px 8px;
+
+                .itemProfileImg {
+                    left: 0;
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .itemInfoText {
+                    text-align: left;
+                    margin-left: 25px;
+                        
+                    .itemTitle {
+                        font-size: 14px;
+                        margin-bottom: 10px;
+                    }
+        
+                    .itemDetailInfo {
+                        font-size: 14px;
+                        color: #4A4A4A;
+                    }
+                }
+            }
+        }
+
+        .itemWish {
+            width: 80px;
+
+            .wishBtn {
+                width: 20px;
+                height: auto;
+                margin-bottom: 20px;
+                transition: $animation-duration;
+            }
+
+            .wishBtn:hover {
+                opacity: 0.5;
+            }
+        }
+
+        .itemAmount {
+            position: relative;
+            width: 80px;
+
+            .itemAmountContent {
+                position: absolute;
+                top: 25px;
+                right: 15px;
+            }
+
+            .currentNumber {
+                font-size: 13px;
+                padding-bottom: 5px;
+            }
+
+            button {
+                color: #555555;
+                background-color: white;
+                border: 1px solid #888888;
+                border-radius: 10px;
+                width: 20px;
+                margin: 3px;
+                transition: $animation-duration;
+            }
+
+            .plus {
+                margin-right: 1px;
+            }
+
+            .plus:hover {
+                color: white;
+                background-color: #888888;
+                transition: $animation-duration;
+                cursor: pointer;
+            }
+
+            .minus:hover {
+                color: white;
+                background-color: #888888;
+                transition: $animation-duration;
+                cursor: pointer;
+            }
+        }
+
+        .deliverWay {
+            position: relative;
+            width: 130px;
+            display: block-flex;
+            justify-content: center;
+            align-items: center;
+
+            .deliverWayContent {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+
+                .pickupWay {
+                    margin-bottom: 10px;
+                }
+
+                .pickupWay:hover {
+                    color: white;
+                    background-color: #888888;
+                    transition: $animation-duration;
+                    cursor: pointer;
+                }
+            }
+
+            button {
+                width: 70px;
+                color: #555555;
+                background-color: white;
+                border: 1px solid #888888;
+                border-radius: 20px;
+            }
+        }
+
+        .deliverPrice {
+            position: relative;
+            width: 130px;
+            
+            .deliverPriceContent {
+                position: absolute;
+                top: 40px;
+                right: 50px;
+
+            }
+        }
+
+        .itemPrice {
+            position: relative;
+            width: 130px;
+
+            .itemPriceContent {
+                position: absolute;
+                top: 40px;
+                right: 0;
+            }
+        }
+    }
+
+    .paymentInfo {
+        height: 100px;
+        border-bottom: 1px solid #dfdfdf;
+
+        .blankSectionOne {
+            width: 840px;
+        }
+
+        .payText {
+            font-size: 14px;
+            width: 130px;
+            text-align: right;
+
+            .payTextContent {
+                height: 80%;
+                padding: 20px 0;
+
+                .productPrice, .shippingPrice, .point {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+
+        .payNumber {
+            font-size: 14px;
+            width: 130px;
+            text-align: right;
+
+            .payNumberContent {
+                height: 80%;
+                padding: 20px 0;
+
+                .productPriceNumber, .shippingPriceNumber, .pointNumber {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+
+        .blankSectionTwo {
+            width: 150px;
+        }
+    }
+
+    .amoutInfo {
+        height: 100px;
+        position: relative;
+
+        .amountTextContent {
+        bottom: 40px;
+        right: 10px;
+        }
+
+        .amoutBlankSectionOne {
+            width: 840px;
+        }
+
+        .amountText {
+            font-size: 14px;
+            width: 130px;
+            text-align: right;
+
+            .paySum {
+                margin-top: 30px;
+            }
+        }
+
+        .amountNumber {
+            font-size: 20px;
+            font-weight: bold;
+            width: 130px;
+            text-align: right;
+        }
+
+    }
+}
+
