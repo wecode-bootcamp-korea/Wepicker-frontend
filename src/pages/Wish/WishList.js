@@ -24,17 +24,6 @@ class WishList extends Component {
     })
   }
 
-  // hoverImg = (evt, hoveredId) => {
-  //   const {wishList} = this.state;
-  //   if(evt.target.id === hoveredId) {
-  //     const newArr = wishList.filter((item) => item.id === hoveredId)
-  //     .map((item) => {
-  //       return item["isHovered"] = true
-  //       console.log(newArr)
-  //     })
-  //   }
-  // }
-
   deleteWish = (selectedId) => {
     const {wishList} = this.state
     const newList = wishList.filter((item) => item.productId !== selectedId)
