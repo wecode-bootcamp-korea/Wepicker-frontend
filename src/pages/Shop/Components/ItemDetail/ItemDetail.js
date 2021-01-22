@@ -150,9 +150,12 @@ class ItemDetail extends React.Component {
     })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res)
+      console.log(res);
+      if(res.message === "SUCCESS"){
+        alert("장바구니로 이동하겠습니다 (✿◕‿◕✿)")
+        this.props.history.push('/cart')
+      }
     })
-    this.props.history.push('/cart')
   }
 
   toggleImg = (idx) => {
@@ -193,7 +196,7 @@ class ItemDetail extends React.Component {
   render() {
     const {isPointMsgHide, isDelieveryMsgHide, selectedOne, productList, showingImg, isWished, waysToPickup} = this.state;
     localStorage.setItem("token", 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTV9.ASvJ2_fpdrgdgd6ExV4WtFhy6HSW7ZAEo19wdXQKMAA');
-
+    console.log(selectedOne)
     return(
       <>
       <Nav />
