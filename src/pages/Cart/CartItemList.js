@@ -16,14 +16,16 @@ class CartItemList extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/data/selectCartItemData.json', {
-            method: 'GET'
+        fetch('http://10.58.5.192:8000/order/cart', {
+            method: 'GET',
+            headers: {
+                Authorization:localStorage.getItem("token")
+            }
         })
         .then(res => res.json())
         .then(res => {
             this.setState({
-                initData: res.data,
-                number: this.state.itemNumber
+                 initData: res.cart_list
             });
         })
     }
@@ -85,38 +87,39 @@ class CartItemList extends React.Component {
     }
 
     render() {
+        localStorage.setItem("token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTd9.jkMTXqX7Hu-zInEm8fySh69NtyX4DIXGerYXg03_NeE")
             return (
                 <section className="CartItemList">
-                    {this.state.initData.map(product => {
-                        let itemNumPrice = ( product.itemPrice * product.itemNumber );
+                    {this.state.initData && this.state.initData.map(product => {
+                        let itemNumPrice = ( product.price * product.quantity );
                     return (
                         <table>
                             <tr 
                             className="selectCartItem" 
-                            key={product.id}>
+                            key={product.product}>
                                 <th className="itemCheckSection">
                                     <input 
                                     type="checkbox" 
                                     className="itemCheckBtn"
                                     onChange={(e) => this.handleItemPriceAddRemove
-                                    (e, parseInt( product.itemPrice * product.itemNumber ))} />
+                                    (e, parseInt( product.price * product.quantity ))} />
                                 </th>
                                 <th className="itemInfo">
                                     <div className="itemInfoContent">
                                         <img 
-                                        alt={product.itemName}
-                                        src={product.itemProfileImg}
+                                        alt={product.name}
+                                        src={product.image_url}
                                         className="itemProfileImg" />
                                         <div className="itemInfoText">
                                             <div className="itemTitle">
-                                            {product.itemName}    
+                                            {product.name}    
                                             </div>
                                             <div className="itemDetailInfo">
-                                                {product.itemOption}
+                                                {product.option_name}
                                                 &nbsp;
                                                 &#47;
                                                 &nbsp;
-                                                {product.itemNumber}개  
+                                                {product.quantity}개  
                                             </div>
                                         </div>
                                     </div>
@@ -130,17 +133,17 @@ class CartItemList extends React.Component {
                                 <th className="itemAmount">
                                     <div className="itemAmountContent">
                                         <div className="currentNumber">
-                                            {product.itemNumber}개
+                                            {product.quantity}개
                                         </div>
                                         <div className="quantityForm">
                                             <button 
                                             className="plus"
-                                            onClick={() => this.handleNumberPricePlus(product.id)}>
+                                            onClick={() => this.handleNumberPricePlus(product.product)}>
                                             +
                                             </button>
                                             <button 
                                             className="minus"
-                                            onClick={() => this.handleNumberPriceMinus(product.id)}>
+                                            onClick={() => this.handleNumberPriceMinus(product.product)}>
                                             -
                                             </button>
                                         </div>
