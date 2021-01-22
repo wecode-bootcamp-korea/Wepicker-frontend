@@ -11,10 +11,14 @@ class Sidebar extends Component {
                     <Link to="/">
                         <li>HOME</li>
                     </Link>
-                        <li>WEPICKER</li>
-                        <li>FAQ</li>
                     <Link to="/product/all">
                         <li>SHOP</li>
+                    </Link>
+                    <Link to="/wishlist">
+                        <li>WISH</li>
+                    </Link>
+                    <Link to="/cart">
+                        <li>CART</li>
                     </Link>
                 </ul>
             </div>
