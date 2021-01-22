@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Nav from '../../components/Nav/Nav'
 import Footer from '../../components/Footer/Footer'
 import WishItem from './Componenets/WishItem'
@@ -36,7 +37,7 @@ class WishList extends Component {
 
   deleteWish = (selectedId) => {
     const {wishList} = this.state
-    const newList = wishList.filter((item) => item.id !== selectedId)
+    const newList = wishList.filter((item) => item.productId !== selectedId)
     this.setState({
       wishList: newList
     })
@@ -53,6 +54,11 @@ class WishList extends Component {
           <div className="headerSection">
             <h1>위시리스트</h1>
             <span>{wishList.length}</span>
+            <Link to="/cart">
+              <button type="button">
+                장바구니로 가기
+              </button>
+            </Link>
           </div>
           <div className="itemContainer">
             {

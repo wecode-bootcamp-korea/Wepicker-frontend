@@ -4,6 +4,11 @@
   margin-right: 30px;
   text-align: center;
   position: relative;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   &:hover {
     cursor: pointer;
