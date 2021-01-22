@@ -1,0 +1,28 @@
+{
+  "wishList": [
+    { 
+      "productId": 7, 
+      "productName": "[도서] 채식연습",
+      "productPrice": 4900, 
+      "url": "https://images.unsplash.com/flagged/photo-1554575314-044335e2a2db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+     },
+     { 
+      "productId": 8, 
+      "productName": "유기농 온몸비누 제주",
+      "productPrice": 9800,
+      "url": "https://images.unsplash.com/photo-1603533626214-9530d6fbfacf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+     },
+     { 
+      "productId": 9, 
+      "productName": "천연 목욕수세미(어린수세미)",
+      "productPrice": 7600,
+      "url": "https://images.unsplash.com/photo-1596872389460-42b8dbb1597b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+     },
+     { 
+      "productId": 10, 
+      "productName": "[도서] 오늘은 조금 바꿉니다",
+      "productPrice": 9800,
+      "url": "https://images.unsplash.com/photo-1543364195-077a16c30ff3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+     }
+  ]
+}

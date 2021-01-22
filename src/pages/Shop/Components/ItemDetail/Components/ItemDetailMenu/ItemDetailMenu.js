@@ -21,6 +21,13 @@ class ItemDetailMenu extends Component {
 
   render() {
     const {currentTab} = this.state;
+    const {productList} = this.props;
+
+    const TAB_COMPONENTS = {
+      1: <ItemDesc productList={productList} />,
+      2: <ItemReviewList />,
+      3: <ItemAsk />
+    }
 
     return (
       <section className="ItemDetailMenu">
@@ -51,8 +58,3 @@ const MENU_TABS = [
   "Q&A"
 ];
 
-const TAB_COMPONENTS = {
-  1: <ItemDesc />,
-  2: <ItemReviewList />,
-  3: <ItemAsk />
-}
