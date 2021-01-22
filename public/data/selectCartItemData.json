@@ -15,7 +15,7 @@
           "itemName": "천연 설거지 수세미 (S/L)",
           "itemProfileImg": "https://cdn.imweb.me/thumbnail/20191022/fe0137460b15c.jpg",
           "itemOption": "작은 수세미 (small)",
-          "itemNumber": "1",
+          "itemNumber": 1,
           "itemShippingWay": "방문수령",
           "itemShippingPayment": "무료",
           "itemPrice": "4000"
@@ -25,7 +25,7 @@
           "itemName": "유기농 설거지 비누(100g/400g)",
           "itemProfileImg": "https://cdn.imweb.me/thumbnail/20200521/78beea850b21b.jpg",
           "itemOption": "400g",
-          "itemNumber": "1",
+          "itemNumber": 1,
           "itemShippingWay": "택배",
           "itemShippingPayment": "선결제",
           "itemPrice": "18000"

@@ -45,6 +45,7 @@
                     height: auto;
                     
                     .allCartCheckBox {
+                        display: none;
                         width: 16px;
                         height: 16px;
                         background-color: #ffffff;
@@ -75,6 +76,10 @@
                 .price {
                     width: 130px;
                 }
+            }
+
+            .ItemListSection {
+                width: 100%;
             }
 
             .emptySection {

@@ -1,5 +1,6 @@
 import React from 'react';
 import wish from '../../images/Nav/heart.png';
+import Addwish from '../../images/Cart/AddwishHeart.png';
 import './CartItemList.scss';
 
 class CartItemList extends React.Component {
@@ -9,7 +10,8 @@ class CartItemList extends React.Component {
             initData: [],
             productPriceTotal:0,
             deliverWay:"착불",
-            deliverCost:"3000"
+            deliverCost:"3000",
+            changeHeart: {wish}
         };
     }
 
@@ -74,7 +76,14 @@ class CartItemList extends React.Component {
             deliverCost: "3000"
         })
     }
-    
+
+    handleWishAdd = () => {
+        alert("위시리스트에 추가 되었습니다!")
+        this.setState({
+            changeHeart: {Addwish}
+        })
+    }
+
     render() {
             return (
                 <section className="CartItemList">
@@ -115,7 +124,8 @@ class CartItemList extends React.Component {
                                 <th className="itemWish">
                                     <img alt="Wish List Page Icon" 
                                     className="wishBtn"  
-                                    src={wish} />
+                                    src={wish} 
+                                    onClick={this.handleWishAdd}/>
                                 </th>
                                 <th className="itemAmount">
                                     <div className="itemAmountContent">
@@ -161,7 +171,7 @@ class CartItemList extends React.Component {
                                 </th>
                                 <th className="itemPrice">
                                     <div className="itemPriceContent">
-                                        {itemNumPrice}원
+                                        {itemNumPrice.toLocaleString()}원
                                     </div>
                                 </th>
                                 <th></th>
@@ -187,11 +197,11 @@ class CartItemList extends React.Component {
                                     <div className="payNumberContent">
                                         <div
                                         className="productPriceNumber">
-                                        {this.state.productPriceTotal}원
+                                        {this.state.productPriceTotal.toLocaleString()}원
                                         </div>
                                         <div
                                         className="shippingPriceNumber">
-                                        {this.state.deliverCost}원
+                                        {this.state.deliverCost.toLocaleString()}원
                                         </div>
                                         <div
                                         className="pointNumber">

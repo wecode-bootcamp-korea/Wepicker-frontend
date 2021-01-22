@@ -1,16 +1,21 @@
 import React from 'react';
+import CartItem from './CartItemList';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 import './CartPage.scss';
 
 class CartPage extends React.Component {
     render() {
       return (
+          <>
+          <Nav/>
           <section className="cartPage">
             <div className="cartPageContent">
                 <div className="title">
                     <span>장바구니</span>
                 </div>
                 <div className="inCartNumberBtn">
-                    <span className="inCartNumber">1</span>
+                    <span className="inCartNumber">3</span>
                 </div>
 
                 <div className="orderContent">
@@ -29,19 +34,15 @@ class CartPage extends React.Component {
                             <th className="price">가격</th>
                             <th></th>
                         </tr>
-                        <tr className="emptySection">
-                            <div>
-                                <span>장바구니가 비어있습니다.</span>
-                            </div>
-                        </tr>
                     </table>
-                </div>
-
-                <div className="bottomSection">
-                    <button>계속쇼핑하기</button>
+                    <div>
+                        <CartItem />
+                    </div>
                 </div>
             </div>
         </section>
+        <Footer/>
+        </>
         )
     }
   }
