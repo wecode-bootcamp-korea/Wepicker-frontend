@@ -2,17 +2,23 @@
 
 
 **About a project**
+
 [The Picker](https://thepicker.net/) website clone project
+
 
 **Wepicker Team member**
 - FrontEnd Developer : 정민선(PM), 구보현, 이새봄
 - BackEnd Developer : 홍연우
 
+
 **Teck Stack**
 - FrontEnd : HTML5, CSS3, JavaScript, React, CRA, React-router-dom, Sass, React-slick-slider
 
+
 **Team Collaboration Tools**
+
 Slack, Git, GitHub, Notion, Trello, Zoom
+
 
 **구현 페이지 및 기능**
 - 메인
@@ -21,5 +27,6 @@ Slack, Git, GitHub, Notion, Trello, Zoom
 - 장바구니
 - 위시리스트
 
+
 **Project Result**
-[](https://youtu.be/q9v8Ax2jgcc)
+[Project video](https://youtu.be/q9v8Ax2jgcc)
